@@ -34,11 +34,10 @@ struct MenuView: View {
                         A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))){
                     Text("Возведение матрицы в степень")
                 }
-//                NavigationLink(destination:
-//                            SLAEView(
-//                        A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]]))){
-//                    Text("Решение СЛАУ")
-//                }
+                NavigationLink(destination:
+                            SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))){
+                    Text("Решение СЛАУ")
+                }
 
                 NavigationLink(destination:
                     DataView(data: MatrixArr)){

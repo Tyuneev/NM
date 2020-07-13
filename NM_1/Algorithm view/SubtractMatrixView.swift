@@ -13,23 +13,23 @@ struct SubtractMatrixView: View {
     @ObservedObject var B: ObservableMatrix
     var body: some View {
          ScrollView(.vertical){
-                   ScrollView(.horizontal){
-                       HStack{
-                           ChangeableMatrixView(matrix: A).padding()
-                           Image(systemName: "minus").font(.system(size: 16, weight: .regular)).padding()
-                           ChangeableMatrixView(matrix: B).padding()
-                           Image(systemName: "equal").font(.system(size: 16, weight: .regular))
-                       }
-                   }
-                   ScrollView(.horizontal){
-                       HStack{
-                           Image(systemName: "equal").font(.system(size: 16, weight: .regular)).padding()
-                           MatrixOrErorView(matrix:
-                               ( (A.WarpedMatrix === B.WarpedMatrix)
-                               ? A.WarpedMatrix-B.WarpedMatrix : nil))
-                       }
-                   }
+            ScrollView(.horizontal){
+               HStack{
+                   ChangeableMatrixView(matrix: A).padding()
+                   Image(systemName: "minus").font(.system(size: 16, weight: .regular)).padding()
+                   ChangeableMatrixView(matrix: B).padding()
+                   Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                }
+            }
+            ScrollView(.horizontal){
+               HStack{
+                   Image(systemName: "equal").font(.system(size: 16, weight: .regular)).padding()
+                   MatrixOrErorView(matrix:
+                       ( (A.WarpedMatrix === B.WarpedMatrix)
+                       ? A.WarpedMatrix-B.WarpedMatrix : nil))
+               }
+            }
+        }
     }
 }
 

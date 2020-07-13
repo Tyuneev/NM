@@ -16,26 +16,28 @@ struct TmpEditView: View {
                 ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
                     HStack {
                         ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                            TextField("", value: self.$matrix.WarpedMatrix.elements[i][j] , formatter: NumberFormatter())
+                            TextField("", value: self.$matrix.WarpedMatrix.elements[i][j], formatter: NumberFormatter())
                                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                                  .keyboardType(.numbersAndPunctuation)
+                                  .keyboardType(.decimalPad)
                         }
                         
                     }
                 }
-                Stepper("",
-                    onIncrement: {
-                        self.matrix.WarpedMatrix.AddRow()
-                    }, onDecrement: {
-                        self.matrix.WarpedMatrix.RemoveRow()
-                    })
+                HStack{
+                    Image(systemName: "plus.circle.fill").font(.system(size: 16, weight: .regular))
+                        .onTapGesture { self.matrix.WarpedMatrix.AddRow() }
+                    Image(systemName: "minus.circle.fill").font(.system(size: 16, weight: .regular))
+                        .onTapGesture { self.matrix.WarpedMatrix.RemoveRow()}
+                            
+                    }
             }
-                            Stepper("",
-                            onIncrement: {
-                                self.matrix.WarpedMatrix.AddColumn()
-                            }, onDecrement: {
-                                self.matrix.WarpedMatrix.RemoveColumn()
-                            }).hueRotation(Angle(degrees: 90))
+            VStack{
+                Image(systemName: "plus.circle.fill").font(.system(size: 16, weight: .regular))
+                    .onTapGesture { self.matrix.WarpedMatrix.AddColumn() }
+                Image(systemName: "minus.circle.fill").font(.system(size: 16, weight: .regular))
+                    .onTapGesture { self.matrix.WarpedMatrix.RemoveColumn()}
+                        
+            }
         }
     }
 }
