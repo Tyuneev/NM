@@ -11,34 +11,60 @@ import SwiftUI
 struct TmpEditView: View {
     @ObservedObject var matrix: ObservableMatrix
     var body: some View {
-        HStack{
-            VStack{
-                ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
-                    HStack {
-                        ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                            TextField("", value: self.$matrix.WarpedMatrix.elements[i][j], formatter: NumberFormatter())
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                  .keyboardType(.decimalPad)
-                        }
-                        
-                    }
-                }
-                HStack{
-                    Image(systemName: "plus.circle.fill").font(.system(size: 16, weight: .regular))
-                        .onTapGesture { self.matrix.WarpedMatrix.AddRow() }
-                    Image(systemName: "minus.circle.fill").font(.system(size: 16, weight: .regular))
-                        .onTapGesture { self.matrix.WarpedMatrix.RemoveRow()}
+        GeometryReader { (deviceSize: GeometryProxy) in
+            ScrollView(.vertical){
+                ScrollView(.horizontal){
+                    HStack{
+                        VStack{
+                            ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
+                                HStack {
+                                    ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
+                                        TextField("", value: self.$matrix.WarpedMatrix.elements[i][j], formatter: NumberFormatter())
+                                            //.frame(width: String(self.matrix.WarpedMatrix.elements[i][j]).count*4)
+                                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                                            .keyboardType(.decimalPad)
+                                    }
+                                }
+                            }
+                            HStack{
+                                Image(systemName: "minus.circle")
+                                    .font(.system(size: 18))
+                                    .padding(.horizontal, 5)
+                                    .foregroundColor(Color.red)
+                                    .onTapGesture { self.matrix.WarpedMatrix.RemoveRow()}
+                                Image(systemName: "plus.circle")
+                                    .font(.system(size: 18))
+                                    .padding(.horizontal, 5)
+                                    .foregroundColor(Color.green)
+                                    .onTapGesture { self.matrix.WarpedMatrix.AddRow()
+                                    }
+                            }
                             
+                        }
+                        VStack{
+                            Image(systemName: "plus.circle")
+                                .font(.system(size: 18))
+                                .padding(.vertical, 5)
+                                .foregroundColor(Color.green)
+                                .onTapGesture { self.matrix.WarpedMatrix.AddColumn()
+                                }
+                            Image(systemName: "minus.circle")
+                                .font(.system(size: 18))
+                                .padding(.horizontal, 5)
+                                .foregroundColor(Color.red)
+                                .onTapGesture { self.matrix.WarpedMatrix.RemoveColumn()
+                                }
+                        }
                     }
-            }
-            VStack{
-                Image(systemName: "plus.circle.fill").font(.system(size: 16, weight: .regular))
-                    .onTapGesture { self.matrix.WarpedMatrix.AddColumn() }
-                Image(systemName: "minus.circle.fill").font(.system(size: 16, weight: .regular))
-                    .onTapGesture { self.matrix.WarpedMatrix.RemoveColumn()}
-                        
+                    .frame(height: deviceSize.size.height*0.9)
+                        .padding()
+                }
+                .frame(width: deviceSize.size.width*0.9,
+                        height: deviceSize.size.height*0.9)
+                Spacer().frame(height: deviceSize.size.height*0.5)
             }
         }
+            
     }
 }
 

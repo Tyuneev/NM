@@ -34,6 +34,7 @@
 		B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */; };
 		B9E13DC924B8C82100A0ECB0 /* MultiplyMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DBF24B8C37700A0ECB0 /* MultiplyMatrixView.swift */; };
 		B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */; };
+		B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAEView.swift; sourceTree = "<group>"; };
 		B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLUDecompositionView.swift; sourceTree = "<group>"; };
 		B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMatrixView.swift; sourceTree = "<group>"; };
+		B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InversMatrixView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +139,7 @@
 		B97124BB246002B700CF3439 /* NM_1 */ = {
 			isa = PBXGroup;
 			children = (
-				B9E13DAE24B7D4E300A0ECB0 /* Othre */,
+				B9E13DAE24B7D4E300A0ECB0 /* Other */,
 				B9E13DAF24B7D50900A0ECB0 /* Algorithm view */,
 				B97124C0246002B700CF3439 /* ContentView.swift */,
 				B9E13DBA24B87F2100A0ECB0 /* DataView.swift */,
@@ -193,14 +195,14 @@
 			path = Matrix;
 			sourceTree = "<group>";
 		};
-		B9E13DAE24B7D4E300A0ECB0 /* Othre */ = {
+		B9E13DAE24B7D4E300A0ECB0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				B97124BC246002B700CF3439 /* AppDelegate.swift */,
 				B9E13DAB24B7CF6C00A0ECB0 /* TmpCode.swift */,
 				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
 			);
-			path = Othre;
+			path = Other;
 			sourceTree = "<group>";
 		};
 		B9E13DAF24B7D50900A0ECB0 /* Algorithm view */ = {
@@ -209,6 +211,7 @@
 				B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */,
 				B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */,
 				B9E13DBF24B8C37700A0ECB0 /* MultiplyMatrixView.swift */,
+				B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */,
 				B9E13DC124B8C39B00A0ECB0 /* DegreeMatrixView.swift */,
 				B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */,
 				B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */,
@@ -364,6 +367,7 @@
 				B9712510246457EC00CF3439 /* SLAE.swift in Sources */,
 				B971250F246457EC00CF3439 /* Matrix.swift in Sources */,
 				B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */,
+				B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */,
 				B9E13DAA24B7BF4400A0ECB0 /* TmpEditView.swift in Sources */,
 				B97124C1246002B700CF3439 /* ContentView.swift in Sources */,
 				B971250D246457EC00CF3439 /* ComplexNumbers.swift in Sources */,

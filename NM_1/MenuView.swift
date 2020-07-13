@@ -44,7 +44,7 @@ struct MenuView: View {
                         Text("Сохраненные матрицы")
                 }
             }.navigationBarTitle(Text("Варианты") .font(.title))
-            }
+        }
         
     }
 }

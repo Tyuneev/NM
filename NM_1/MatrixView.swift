@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-enum ActivSheetView {
-    case EditView, SaveMatrixView, ChoosSavedMatrixView, No
-}
 
 struct ChangeableMatrixView: View {
+        enum ActivSheetView {
+            case EditView, SaveMatrixView, ChoosSavedMatrixView, No
+        }
         @ObservedObject var matrix: ObservableMatrix
         @State private var showActionSheet = false
         @State private var showSeetView = false
@@ -34,8 +34,13 @@ struct ChangeableMatrixView: View {
             .background(RoundedRectangle(cornerRadius: 10)
                 .fill(Color.blue.opacity(0.3)))
             .onTapGesture {
+               self.showSeetView = true
+               self.activSheet = .EditView
+            }
+            .onLongPressGesture {
                 self.showActionSheet = true
             }
+
             .sheet(isPresented: self.$showSeetView){
                 self.SheetView()
             }
@@ -43,10 +48,10 @@ struct ChangeableMatrixView: View {
                 ActionSheet(title: Text("Действия").font(.title),
                     buttons: [
                         .cancel(),
-                        .default(Text("Изменить"), action: {
-                            self.showSeetView = true
-                            self.activSheet = .EditView
-                        }),
+//                        .default(Text("Изменить"), action: {
+//                            self.showSeetView = true
+//                            self.activSheet = .EditView
+//                        }),
                         .default(Text("Сохранить"), action: {
                             self.activSheet = .SaveMatrixView
                             self.showSeetView = true

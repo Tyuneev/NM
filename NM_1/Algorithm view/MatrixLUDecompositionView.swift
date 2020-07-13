@@ -18,23 +18,25 @@ struct MatrixLUDecompositionView: View {
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                 }
             }
-            DecompositionOrError(A.WarpedMatrix.LUdecomposition())
+            DecompositionOrError(A.WarpedMatrix.SLUdecomposition())
         }
     }
-    func DecompositionOrError(_ result: (Matrix, Matrix, [Int])?) -> AnyView {
-        guard let LU = result else {
+    func DecompositionOrError(_ result: (Matrix, Matrix, Matrix)?) -> AnyView {
+        guard let sLU = result else {
             return AnyView(Text("Ошибка").foregroundColor(Color.red))
         }
         return AnyView(
             ScrollView(.horizontal){
-            HStack{
-                    Image(systemName: "equal").font(.system(size: 16, weight: .regular)).padding()
-                    UnchangeableMatrixView(matrix: LU.0).padding()
-                    Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
-                    UnchangeableMatrixView(matrix: LU.1).padding()
-                    //Text(swaps) Дописать
+                HStack{
+                        Image(systemName: "equal").font(.system(size: 16, weight: .regular)).padding()
+                        UnchangeableMatrixView(matrix: sLU.0).padding()
+                        Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
+                        UnchangeableMatrixView(matrix: sLU.1).padding()
+                        Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
+                        UnchangeableMatrixView(matrix: sLU.2).padding()
+                        //Text(swaps) Дописать
+                    }
                 }
-            }
         )
     }
 }

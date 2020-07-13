@@ -114,8 +114,21 @@ struct Matrix {
         return self.columns == self.rows
     }
     
+    func SLUdecomposition() -> (Matrix, Matrix, Matrix)? {
+        guard let LUs = self.LUdecomposition() else {
+            return nil
+        }
+        var S = Matrix(IdentityWithSize: self.rows)
+        var i = 0
+        while i < LUs.2.count{
+            S.SwapRows(LUs.2[i], LUs.2[i+1])
+            i = i+2
+        }
+        return (S, LUs.0, LUs.1)
+    }
+    
     func LUdecomposition() -> (Matrix, Matrix, [Int])? {
-        guard self.columns == self.rows else {
+        guard self.IsSquare() else {
             return nil
         }
         var U = self
@@ -242,9 +255,10 @@ struct Matrix {
         }
         return Matrix(ResultElements)
     }
+    
     static func ^(Left : Matrix, Right : Int) -> Matrix {
         var Result = Left
-        for _ in 1 ..< Right{
+        for _ in 0..<Right{
             Result = Result * Left
         }
         return Result

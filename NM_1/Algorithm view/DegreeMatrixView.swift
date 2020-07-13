@@ -17,6 +17,7 @@ struct DegreeMatrixView: View {
                 HStack(){
                     ChangeableMatrixView(matrix: A).padding()
                     VStack(){                        TextField("Степень", value: self.$Deg, formatter: NumberFormatter())
+                        
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.numberPad )
                             .background(RoundedRectangle(cornerRadius: 10)
