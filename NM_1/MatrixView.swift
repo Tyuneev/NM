@@ -10,60 +10,60 @@ import SwiftUI
 
 
 struct ChangeableMatrixView: View {
-        enum ActivSheetView {
-            case EditView, SaveMatrixView, ChoosSavedMatrixView, No
-        }
-        @ObservedObject var matrix: ObservableMatrix
-        @State private var showActionSheet = false
-        @State private var showSeetView = false
-        @State private var activSheet: ActivSheetView = .No
-    
-        var body: some View {
-            HStack(alignment: .bottom, spacing: 0){
-                ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                    VStack(alignment: .leading, spacing: 0) {
-                        ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
-                            Text(String(self.matrix.WarpedMatrix[i, j])).bold()
-                                .frame(height: 35.0)
-                                .frame(minWidth: 40)
-                                .padding(4)
-                        }
+    enum ActivSheetView {
+        case EditView, SaveMatrixView, ChoosSavedMatrixView, No
+    }
+    @ObservedObject var matrix: ObservableMatrix
+    @State private var showActionSheet = false
+    @State private var showSeetView = false
+    @State private var activSheet: ActivSheetView = .No
+
+    var body: some View {
+        HStack(alignment: .bottom, spacing: 0){
+            ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
+                        Text(String(self.matrix.WarpedMatrix[i, j])).bold()
+                            .frame(height: 35.0)
+                            .frame(minWidth: 40)
+                            .padding(4)
                     }
                 }
             }
-            .background(RoundedRectangle(cornerRadius: 10)
-                .fill(Color.blue.opacity(0.3)))
-            .onTapGesture {
-               self.showSeetView = true
-               self.activSheet = .EditView
-            }
-            .onLongPressGesture {
-                self.showActionSheet = true
-            }
+        }
+        .background(RoundedRectangle(cornerRadius: 10)
+            .fill(Color.blue.opacity(0.3)))
+        .onTapGesture {
+           self.showSeetView = true
+           self.activSheet = .EditView
+        }
+        .onLongPressGesture {
+            self.showActionSheet = true
+        }
 
-            .sheet(isPresented: self.$showSeetView){
-                self.SheetView()
-            }
-            .actionSheet(isPresented: $showActionSheet, content: {
-                ActionSheet(title: Text("Действия").font(.title),
-                    buttons: [
-                        .cancel(),
-//                        .default(Text("Изменить"), action: {
-//                            self.showSeetView = true
-//                            self.activSheet = .EditView
-//                        }),
-                        .default(Text("Сохранить"), action: {
-                            self.activSheet = .SaveMatrixView
-                            self.showSeetView = true
-                        }),
-                        .default(Text("Применить другой алгоритм"), action: {
-                        }),
-                        .default(Text("Выбрать из сохраненных"), action: {
-                            self.activSheet = .ChoosSavedMatrixView
-                            self.showSeetView = true
-                        })
-                    ])
-            })
+        .sheet(isPresented: self.$showSeetView){
+            self.SheetView()
+        }
+        .actionSheet(isPresented: $showActionSheet, content: {
+            ActionSheet(title: Text("Действия").font(.title),
+                buttons: [
+                    .cancel(),
+//                    .default(Text("Изменить"), action: {
+//                        self.showSeetView = true
+//                        self.activSheet = .EditView
+//                    }),
+                    .default(Text("Сохранить"), action: {
+                        self.activSheet = .SaveMatrixView
+                        self.showSeetView = true
+                    }),
+                    .default(Text("Применить другой алгоритм"), action: {
+                    }),
+                    .default(Text("Выбрать из сохраненных"), action: {
+                        self.activSheet = .ChoosSavedMatrixView
+                        self.showSeetView = true
+                    })
+                ])
+        })
     }
     func SheetView() -> AnyView {
         switch self.activSheet {

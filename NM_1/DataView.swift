@@ -11,19 +11,17 @@ import SwiftUI
 struct DataView: View {
     @State var data: [SavedMatrix]
     var body: some View {
-        NavigationView {
-           List {
-                ForEach(data) { m in
-                    Section(header: Text(m.name)) {
-                        UnchangeableMatrixView(matrix: m.matrix)
-                    }
+       List {
+            ForEach(data) { m in
+                Section(header: Text(m.name)) {
+                    UnchangeableMatrixView(matrix: m.matrix)
                 }
-                .onDelete{
-                    self.data.remove(atOffsets: $0)
-                    MatrixArr.remove(atOffsets: $0)
-                    }
-           }
-        }
+            }
+            .onDelete{
+                self.data.remove(atOffsets: $0)
+                MatrixArr.remove(atOffsets: $0)
+            }
+       }
     }
 }
 
@@ -32,7 +30,6 @@ struct DataForChoosView: View {
     @State var data: [SavedMatrix]
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        NavigationView {
            List {
                 ForEach(data) { item in
                     Section(header: Text(item.name)) {
@@ -43,7 +40,6 @@ struct DataForChoosView: View {
                     }
                 }
             }
-        }
     }
 }
 

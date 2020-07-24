@@ -34,7 +34,7 @@ struct SLAEView: View {
                     .fill(Color.blue.opacity(0.3)))
                     .padding()
                 Image(systemName: "equal").font(.system(size: 16, weight: .regular))
-                //MatrixOrErorView(matrix: SolveSLAE(A: A.WarpedMatrix, B: B.WarpedMatrix)).padding()
+                MatrixOrErorView(matrix: SolveSLAE(A: A.WarpedMatrix, B: B.WarpedMatrix)).padding()
             }
             
         }

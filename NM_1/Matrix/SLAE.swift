@@ -9,6 +9,7 @@
 import Foundation
 
 func SolveSLAE(A: Matrix, B: Matrix) -> Matrix? {
+    
     guard let Res = SolveSLAE(LUdecomposition: A.LUdecomposition(), B: B.Transpose().elements[0]) else{
         return nil
     }

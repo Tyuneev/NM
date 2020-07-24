@@ -11,14 +11,16 @@ import SwiftUI
 struct MatrixDeterminantView: View {
     @ObservedObject var A: ObservableMatrix
     var body: some View {
-        VStack(alignment: .leading){
-            ScrollView(.horizontal) {
-                ChangeableMatrixView(matrix: A).padding()
+        ScrollView(.vertical){
+            VStack(alignment: .leading){
+                ScrollView(.horizontal) {
+                    ChangeableMatrixView(matrix: A).padding()
+                }
+                ((A.WarpedMatrix.Determinant() != nil) ?
+                    Text("Определитель:   " + String(A.WarpedMatrix.Determinant() ?? 0)).font(.system(size: 25))
+                    :
+                    Text("Ошибка").foregroundColor(Color.red)).padding()
             }
-            ((A.WarpedMatrix.Determinant() != nil) ?
-                Text("Определитель:   " + String(A.WarpedMatrix.Determinant() ?? 0)).font(.system(size: 25))
-                :
-                Text("Ошибка").foregroundColor(Color.red)).padding()
         }
     }
 }

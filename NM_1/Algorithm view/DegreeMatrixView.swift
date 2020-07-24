@@ -16,8 +16,8 @@ struct DegreeMatrixView: View {
             ScrollView(.horizontal){
                 HStack(){
                     ChangeableMatrixView(matrix: A).padding()
-                    VStack(){                        TextField("Степень", value: self.$Deg, formatter: NumberFormatter())
-                        
+                    VStack(){
+                        TextField("Степень", value: self.$Deg, formatter: NumberFormatter())
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.numberPad )
                             .background(RoundedRectangle(cornerRadius: 10)
@@ -35,7 +35,7 @@ struct DegreeMatrixView: View {
                         .padding()
                     MatrixOrErorView(matrix: (
                                    (A.WarpedMatrix.IsSquare() && (Int(Deg) != nil))
-                                       ? A.WarpedMatrix^(Int(Deg)!) : nil))
+                                    ? A.WarpedMatrix^(Int(self.Deg) ?? 1) : nil))
                 }
             }
         }

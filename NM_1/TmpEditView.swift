@@ -27,6 +27,7 @@ struct TmpEditView: View {
                                 }
                             }
                             HStack{
+                                //Text(String(Int(deviceSize.size.width)))
                                 Image(systemName: "minus.circle")
                                     .font(.system(size: 18))
                                     .padding(.horizontal, 5)

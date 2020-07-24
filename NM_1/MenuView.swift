@@ -35,17 +35,33 @@ struct MenuView: View {
                     Text("Возведение матрицы в степень")
                 }
                 NavigationLink(destination:
-                            SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))){
+                        SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))){
                     Text("Решение СЛАУ")
                 }
 
                 NavigationLink(destination:
+                    MatrixLUDecompositionView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+                    Text("LU разложение")
+                }
+                NavigationLink(destination:
+                    MatrixDeterminantView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+                    Text("Определитель матрицы")
+                }
+                NavigationLink(destination:
+                    InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+                    Text("Обратная матрицa")
+                }
+                
+                Divider()
+                
+                NavigationLink(destination:
                     DataView(data: MatrixArr)){
                         Text("Сохраненные матрицы")
                 }
-            }.navigationBarTitle(Text("Варианты") .font(.title))
+            }
+            .navigationBarTitle(Text("Варианты")
+            .font(.title))
         }
-        
     }
 }
 

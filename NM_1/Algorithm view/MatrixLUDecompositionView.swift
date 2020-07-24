@@ -11,14 +11,16 @@ import SwiftUI
 struct MatrixLUDecompositionView: View {
     @ObservedObject var A: ObservableMatrix
     var body: some View {
-        VStack{
-            ScrollView(.horizontal){
-                HStack(){
-                    ChangeableMatrixView(matrix: A).padding()
-                    Image(systemName: "equal").font(.system(size: 16, weight: .regular))
+        ScrollView(.vertical){
+            VStack{
+                ScrollView(.horizontal){
+                    HStack(){
+                        ChangeableMatrixView(matrix: A).padding()
+                        Image(systemName: "equal").font(.system(size: 16, weight: .regular))
+                    }
                 }
+                DecompositionOrError(A.WarpedMatrix.SLUdecomposition())
             }
-            DecompositionOrError(A.WarpedMatrix.SLUdecomposition())
         }
     }
     func DecompositionOrError(_ result: (Matrix, Matrix, Matrix)?) -> AnyView {

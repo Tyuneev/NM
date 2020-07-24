@@ -17,7 +17,7 @@ struct MultiplyMatrixView: View {
                 HStack{
                     ChangeableMatrixView(matrix: A).padding()
                     Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
-                    ChangeableMatrixView(matrix: B).padding()
+                    ChangeableMatrixView(matrix: B)
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                 }
             }

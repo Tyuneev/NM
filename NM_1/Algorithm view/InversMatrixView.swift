@@ -15,11 +15,11 @@ struct InversMatrixView: View {
             ScrollView(.horizontal){
                 HStack{
                     ChangeableMatrixView(matrix: A).padding()
-                VStack{
-                    Text("-1")
-                    Spacer()
-                }
-                Image(systemName: "equal").font(.system(size: 16, weight: .regular))
+                    VStack{
+                        Text("-1")
+                        Spacer()
+                    }
+                    Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                 }
             }
             ScrollView(.horizontal){
