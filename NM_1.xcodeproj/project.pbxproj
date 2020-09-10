@@ -154,15 +154,14 @@
 			isa = PBXGroup;
 			children = (
 				B9E13DAE24B7D4E300A0ECB0 /* Other */,
-				B9E13DAF24B7D50900A0ECB0 /* Algorithm view */,
+				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
 				B97124C0246002B700CF3439 /* ContentView.swift */,
 				B96533232502C3C700D5B5C4 /* GraphView.swift */,
-				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
+				B9BB4354250A42A100116B02 /* Labs */,
 				B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */,
-				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
-				B9BB435225096ED400116B02 /* Lab1.1View.swift */,
 				B9BB434C2506E75B00116B02 /* GraphsView.swift */,
 				B9E13DBA24B87F2100A0ECB0 /* DataView.swift */,
+				B9BB4355250A42BC00116B02 /* Grapfs */,
 				B9E13DB824B87EF100A0ECB0 /* Data.swift */,
 				B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */,
 				B9AA760324F05BA9005C4E8F /* Test2UIView.swift */,
@@ -214,6 +213,23 @@
 			path = Matrix;
 			sourceTree = "<group>";
 		};
+		B9BB4354250A42A100116B02 /* Labs */ = {
+			isa = PBXGroup;
+			children = (
+				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
+				B9BB435225096ED400116B02 /* Lab1.1View.swift */,
+				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
+			);
+			path = Labs;
+			sourceTree = "<group>";
+		};
+		B9BB4355250A42BC00116B02 /* Grapfs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Grapfs;
+			sourceTree = "<group>";
+		};
 		B9E13DAE24B7D4E300A0ECB0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,7 +242,7 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
-		B9E13DAF24B7D50900A0ECB0 /* Algorithm view */ = {
+		B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */ = {
 			isa = PBXGroup;
 			children = (
 				B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */,
@@ -238,7 +254,7 @@
 				B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */,
 				B9E13DC324B8C3C300A0ECB0 /* MatrixDeterminantView.swift */,
 			);
-			path = "Algorithm view";
+			path = AlgorithmView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
