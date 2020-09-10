@@ -36,7 +36,6 @@ struct MatrixLUDecompositionView: View {
                         UnchangeableMatrixView(matrix: sLU.1).padding()
                         Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
                         UnchangeableMatrixView(matrix: sLU.2).padding()
-                        //Text(swaps) Дописать
                     }
                 }
         )

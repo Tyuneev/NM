@@ -13,26 +13,35 @@ struct ChangeableMatrixView: View {
     enum ActivSheetView {
         case EditView, SaveMatrixView, ChoosSavedMatrixView, No
     }
+    let EditColumnNumber = true
+    let EditRowNumber = true
     @ObservedObject var matrix: ObservableMatrix
     @State private var showActionSheet = false
     @State private var showSeetView = false
     @State private var activSheet: ActivSheetView = .No
 
     var body: some View {
-        HStack(alignment: .bottom, spacing: 0){
+        HStack(alignment: .bottom, spacing: 4){
             ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 4) {
                     ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
-                        Text(String(self.matrix.WarpedMatrix[i, j])).bold()
+                        Text(String(self.matrix.WarpedMatrix[i, j]))
+                            .bold()
                             .frame(height: 35.0)
                             .frame(minWidth: 40)
-                            .padding(4)
+                            .frame(maxWidth: .infinity)
+                            .layoutPriority(2)
                     }
-                }
+                }.frame(maxWidth: .infinity)
             }
         }
-        .background(RoundedRectangle(cornerRadius: 10)
-            .fill(Color.blue.opacity(0.3)))
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.blue.opacity(0.3)
+            )
+        )
+        .frame(maxWidth: .infinity)
+        .layoutPriority(1)
         .onTapGesture {
            self.showSeetView = true
            self.activSheet = .EditView
@@ -68,7 +77,7 @@ struct ChangeableMatrixView: View {
     func SheetView() -> AnyView {
         switch self.activSheet {
         case .EditView:
-            return AnyView(TmpEditView(matrix: self.matrix))
+            return AnyView(TmpEditView(EditColumnNumber: self.EditColumnNumber, EditRowNumber: self.EditRowNumber, matrix: self.matrix))
         case .SaveMatrixView:
             return AnyView(SaveMatrixView(matrix: self.matrix.WarpedMatrix))
         case .ChoosSavedMatrixView:
@@ -148,7 +157,9 @@ struct MatrixView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
             Text("Изменяемая:")
-            ChangeableMatrixView(matrix: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))
+            ScrollView(.horizontal){
+            ChangeableMatrixView(matrix: ObservableMatrix(Matrix([[10000000,1000000,0,10000],[0,0,10000,0],[0,0,1000,0]])))
+            }
             Text("Неизменяемая:")
             UnchangeableMatrixView(matrix: Matrix([[0,0,0],[0,0,0],[0,0,0]]))
         }

@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct TmpEditView: View {
+    let EditColumnNumber: Bool
+    let EditRowNumber: Bool
     @ObservedObject var matrix: ObservableMatrix
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
@@ -32,28 +34,40 @@ struct TmpEditView: View {
                                     .font(.system(size: 18))
                                     .padding(.horizontal, 5)
                                     .foregroundColor(Color.red)
-                                    .onTapGesture { self.matrix.WarpedMatrix.RemoveRow()}
+                                    .onTapGesture {
+                                        if self.EditColumnNumber{ self.matrix.WarpedMatrix.RemoveRow()
+                                        }
+                                    }
                                 Image(systemName: "plus.circle")
                                     .font(.system(size: 18))
                                     .padding(.horizontal, 5)
                                     .foregroundColor(Color.green)
-                                    .onTapGesture { self.matrix.WarpedMatrix.AddRow()
+                                    .onTapGesture {
+                                        if self.EditColumnNumber {
+                                            self.matrix.WarpedMatrix.AddRow()
+                                        }
                                     }
                             }
-                            
+
                         }
                         VStack{
                             Image(systemName: "plus.circle")
                                 .font(.system(size: 18))
                                 .padding(.vertical, 5)
                                 .foregroundColor(Color.green)
-                                .onTapGesture { self.matrix.WarpedMatrix.AddColumn()
+                                .onTapGesture {
+                                    if self.EditRowNumber {
+                                        self.matrix.WarpedMatrix.AddColumn()
+                                    }
                                 }
                             Image(systemName: "minus.circle")
                                 .font(.system(size: 18))
                                 .padding(.horizontal, 5)
                                 .foregroundColor(Color.red)
-                                .onTapGesture { self.matrix.WarpedMatrix.RemoveColumn()
+                                .onTapGesture {
+                                    if self.EditRowNumber {
+                                        self.matrix.WarpedMatrix.RemoveColumn()
+                                    }
                                 }
                         }
                     }
@@ -71,11 +85,14 @@ struct TmpEditView: View {
 
 struct TmpEditView_Previews: PreviewProvider {
     static var previews: some View {
-        TmpEditView(matrix:
-            ObservableMatrix(
+        TmpEditView(
+            EditColumnNumber: true,
+            EditRowNumber: true,
+            matrix: ObservableMatrix(
                 Matrix([[10,2,3,0,0,0],
                         [3,2.20005,1,0,0,0],
-                        [5,6,7,0,0,0]]))
+                        [5,6,7,0,0,0]])
+            )
         )
     }
 }

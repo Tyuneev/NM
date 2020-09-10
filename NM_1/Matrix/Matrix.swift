@@ -230,6 +230,14 @@ struct Matrix {
         self.elements = M.elements
     }
     
+    func minElement() -> Double{
+        return self.elements.reduce(0){min($0, $1.reduce(0){min($0, $1)})}
+    }
+    
+    func maxElement() -> Double{
+        return self.elements.reduce(0){min($0, $1.reduce(0){max($0, $1)})}
+    }
+    
     static func ==(Left : Matrix, Right : Matrix) -> Bool {
         if Left.columns != Right.columns || Left.rows != Right.rows{
             return false

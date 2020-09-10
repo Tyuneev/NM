@@ -51,13 +51,18 @@ struct MenuView: View {
                     InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
                     Text("Обратная матрицa")
                 }
+                NavigationLink(destination:
+                    InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+                    Text("Обратная матрицa")
+                }
+                
                 
                 Divider()
-                
-                NavigationLink(destination:
-                    DataView(data: MatrixArr)){
-                        Text("Сохраненные матрицы")
-                }
+//                
+//                NavigationLink(destination:
+//                    DataView(data: MatrixArr)){
+//                        Text("Сохраненные матрицы")
+//                }
             }
             .navigationBarTitle(Text("Варианты")
             .font(.title))
