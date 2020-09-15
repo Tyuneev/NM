@@ -15,6 +15,12 @@ struct LabMenuView: View {
                     NavigationLink(destination: Lab1_1View()){
                         Text("1.1 Определитель, обратная матрица, решение СЛАУ при помощи LU разложения")
                     }
+                    NavigationLink(destination: Lab1_2View()){
+                        Text("1.2 Решение СЛАУ методом прогонки")
+                    }
+                    NavigationLink(destination: Lab1_3View()){
+                        Text("1.3 Решение СЛАУ методами ...")
+                    }
                     NavigationLink(destination:
                                 SubtractMatrixView(
                             A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
@@ -49,13 +55,9 @@ struct LabMenuView: View {
                         InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
                         Text("Обратная матрицa")
                     }
-                    NavigationLink(destination:
-                        InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-                        Text("Обратная матрицa")
-                    }
                     
                     
-                    Divider()
+                    //Divider()
 //
 //                    NavigationLink(destination:
 //                        DataView(data: MatrixArr)){

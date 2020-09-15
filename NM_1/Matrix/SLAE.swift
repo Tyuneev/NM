@@ -139,6 +139,32 @@ func SolveSLAE_SimpleIterationMethod<T: DoubleConvertible>(A: Matrix?, B: [T]?, 
         }
         counter += 1
     } while (k*x.NormOfVector1() > Accuracy)
-    print("Made iterations: \(counter)")
     return (xNew, counter)
+}
+
+
+func SolveSLAERunMethod(A: Matrix, B: Matrix) -> Matrix? {
+    let n = A.columns
+    guard n == A.rows, n == B.rows, B.columns == 1 else {
+        return nil
+    }
+    var a: [Double] = []
+    var b: [Double] = []
+    var c: [Double] = []
+    var d: [Double] = []
+    var m = Matrix(IdentityWithSize: n)
+    for i in 0..<n {
+        a.append(A[i, i-1])
+        b.append(A[i, i])
+        c.append(A[i, i+1])
+        d.append(B[i, 0])
+        m[i,i-1] = A[i, i-1]
+        m[i,i] = A[i, i]
+        m[i,i+1] = A[i, i+1]
+    }
+    guard m == A, let res = SolveSALE(a: a, b: b, c: c, d: d) else {
+        return nil
+    }
+    
+    return Matrix([res]).Transpose()
 }

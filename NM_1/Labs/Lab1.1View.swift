@@ -20,7 +20,9 @@ struct Lab1_1View: View {
                 Text("Система линейных алгебраических уравнений:").font(.title).padding(.horizontal)
                 ScrollView(.horizontal){
                     HStack(){
-                        ChangeableMatrixView(matrix: A).padding()
+                        ChangeableMatrixView(matrix: A)
+                            .layoutPriority(2)
+                            .padding()
                         Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
                         Text("X")
                             .frame(width: 30, height: 50)
@@ -28,8 +30,8 @@ struct Lab1_1View: View {
                             .fill(Color.blue.opacity(0.3)))
                             .padding()
                         Image(systemName: "equal").font(.system(size: 16, weight: .regular))
-                        ChangeableMatrixView(matrix: B).padding()
-
+                        ChangeableMatrixView(matrix: B)
+                            .padding()
                     }
                 }
                 Text("Решение системы:").font(.title).padding(.leading)
@@ -42,7 +44,7 @@ struct Lab1_1View: View {
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                     MatrixOrErorView(matrix: SolveSLAE(A: A.WarpedMatrix, B: B.WarpedMatrix)).padding()
                 }
-                
+//
                 Text("LU разложение с матрицей перестановок: ").font(.title).padding(.leading)
                 DecompositionOrError(A.WarpedMatrix.SLUdecomposition())
                 Text("Обратная матрица: ").font(.title).padding(.leading)

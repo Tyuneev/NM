@@ -14,8 +14,8 @@ struct Matrix {
     var rows: Int, columns: Int
 
     subscript(x:Int, y:Int) -> Double {
-        get { return (x<rows && y<rows && x>=0 && y>=0) ? elements[x][y] : 0.0 }
-        set(val) { (x<rows && y<rows && x>=0 && y>=0) ? elements[x][y] = val : ()}
+        get { return (x<rows && y<columns && x>=0 && y>=0) ? elements[x][y] : 0.0 }
+        set(val) { (x<rows && y<columns && x>=0 && y>=0) ? elements[x][y] = val : ()}
     }
     
     func InverseMatrix() -> Matrix?{

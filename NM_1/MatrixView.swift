@@ -27,12 +27,13 @@ struct ChangeableMatrixView: View {
                     ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
                         Text(String(self.matrix.WarpedMatrix[i, j]))
                             .bold()
+                            .font(.system(size: 15))
                             .frame(height: 35.0)
                             .frame(minWidth: 40)
-                            .frame(maxWidth: .infinity)
-                            .layoutPriority(2)
+                            .layoutPriority(1)
                     }
-                }.frame(maxWidth: .infinity)
+                }
+                //.frame(maxWidth: .infinity)
             }
         }
         .background(
@@ -40,7 +41,7 @@ struct ChangeableMatrixView: View {
                 .fill(Color.blue.opacity(0.3)
             )
         )
-        .frame(maxWidth: .infinity)
+        //.frame(maxWidth: .infinity)
         .layoutPriority(1)
         .onTapGesture {
            self.showSeetView = true
@@ -78,7 +79,7 @@ struct ChangeableMatrixView: View {
         switch self.activSheet {
         case .EditView:
             return AnyView(TmpEditView(EditColumnNumber: self.EditColumnNumber, EditRowNumber: self.EditRowNumber, matrix: self.matrix))
-        case .SaveMatrixView:
+        case .SaveMatrixView://alert.addTextField
             return AnyView(SaveMatrixView(matrix: self.matrix.WarpedMatrix))
         case .ChoosSavedMatrixView:
             return AnyView(DataForChoosView(matrix: self.matrix, data: MatrixArr))
@@ -98,12 +99,15 @@ struct UnchangeableMatrixView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(0..<self.matrix.rows, id: \.self){ i in
                         Text(" " + String(self.matrix[i, j]) + "  ")
+                            .font(.system(size: 15))
                             .bold()
                             .frame(height: 35.0)
                             .frame(minWidth: 40)
                             .padding(4)
                     }
                 }
+                //.frame(maxWidth: .infinity)
+                //.layoutPriority(2)
             }
         }
         .background(RoundedRectangle(cornerRadius: 10).fill(Color.green.opacity(0.5)))
@@ -143,6 +147,7 @@ struct ChoosMatrixView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(0..<self.matrix.rows, id: \.self){ i in
                         Text(" " + String(self.matrix[i, j]) + "  ")
+                            .font(.system(size: 15))
                             .frame(height: 35.0)
                             .frame(minWidth: 40)
                             .padding(4)
@@ -157,11 +162,15 @@ struct MatrixView_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
             Text("Изменяемая:")
-            ScrollView(.horizontal){
-            ChangeableMatrixView(matrix: ObservableMatrix(Matrix([[10000000,1000000,0,10000],[0,0,10000,0],[0,0,1000,0]])))
-            }
-            Text("Неизменяемая:")
-            UnchangeableMatrixView(matrix: Matrix([[0,0,0],[0,0,0],[0,0,0]]))
+            UnchangeableMatrixView(matrix: (Matrix([[1.0,2.0,3.0,4.0]])))
+//            ScrollView(.horizontal){
+//            ChangeableMatrixView(matrix: ObservableMatrix(Matrix([[1,2,3,4]])))
+//            }
+//            ScrollView(.horizontal){
+//            ChangeableMatrixView(matrix: ObservableMatrix(Matrix([[10000000,1000000,0,10000],[0,0,10000,0],[0,0,1000,0]])))
+//            }
+//            Text("Неизменяемая:")
+//            UnchangeableMatrixView(matrix: Matrix([[0,0,0],[0,0,0],[0,0,0]]))
         }
     }
 }

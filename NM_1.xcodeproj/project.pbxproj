@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D1250E770D001D657B /* Lab3.2View.swift */; };
+		B905E3D4250E7724001D657B /* Lab1.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D3250E7724001D657B /* Lab1.2View.swift */; };
+		B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D5250EB139001D657B /* Lab1.3View.swift */; };
 		B96533242502C3C700D5B5C4 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96533232502C3C700D5B5C4 /* GraphView.swift */; };
 		B9653326250316BB00D5B5C4 /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9653325250316BB00D5B5C4 /* Graphs.swift */; };
 		B97124BF246002B700CF3439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124BE246002B700CF3439 /* SceneDelegate.swift */; };
@@ -25,6 +28,7 @@
 		B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB434E25083ED800116B02 /* Lab3.1View.swift */; };
 		B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB435025096E3E00116B02 /* LabMenuView.swift */; };
 		B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB435225096ED400116B02 /* Lab1.1View.swift */; };
+		B9BB4357250A448000116B02 /* MultiplyMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB4356250A448000116B02 /* MultiplyMatrixView.swift */; };
 		B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */; };
 		B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */; };
 		B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */; };
@@ -39,7 +43,6 @@
 		B9E13DC424B8C3C300A0ECB0 /* MatrixDeterminantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC324B8C3C300A0ECB0 /* MatrixDeterminantView.swift */; };
 		B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */; };
 		B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */; };
-		B9E13DC924B8C82100A0ECB0 /* MultiplyMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DBF24B8C37700A0ECB0 /* MultiplyMatrixView.swift */; };
 		B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */; };
 		B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */; };
 /* End PBXBuildFile section */
@@ -62,8 +65,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B96533232502C3C700D5B5C4 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = NM_1/GraphView.swift; sourceTree = SOURCE_ROOT; };
-		B9653325250316BB00D5B5C4 /* Graphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Graphs.swift; path = NM_1/Graphs.swift; sourceTree = SOURCE_ROOT; };
+		B905E3D1250E770D001D657B /* Lab3.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.2View.swift; sourceTree = "<group>"; };
+		B905E3D3250E7724001D657B /* Lab1.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.2View.swift; sourceTree = "<group>"; };
+		B905E3D5250EB139001D657B /* Lab1.3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.3View.swift; sourceTree = "<group>"; };
+		B96533232502C3C700D5B5C4 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = NM_1/Grapfs/GraphView.swift; sourceTree = SOURCE_ROOT; };
+		B9653325250316BB00D5B5C4 /* Graphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Graphs.swift; path = NM_1/Grapfs/Graphs.swift; sourceTree = SOURCE_ROOT; };
 		B97124B9246002B700CF3439 /* NM_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NM_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97124BC246002B700CF3439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97124BE246002B700CF3439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		B9BB434E25083ED800116B02 /* Lab3.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.1View.swift; sourceTree = "<group>"; };
 		B9BB435025096E3E00116B02 /* LabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabMenuView.swift; sourceTree = "<group>"; };
 		B9BB435225096ED400116B02 /* Lab1.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.1View.swift; sourceTree = "<group>"; };
+		B9BB4356250A448000116B02 /* MultiplyMatrixView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplyMatrixView.swift; sourceTree = "<group>"; };
 		B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOptionsView.swift; sourceTree = "<group>"; };
 		B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeMatrixView.swift; sourceTree = "<group>"; };
@@ -96,7 +103,6 @@
 		B9E13DB824B87EF100A0ECB0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B9E13DBA24B87F2100A0ECB0 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixView.swift; sourceTree = "<group>"; };
-		B9E13DBF24B8C37700A0ECB0 /* MultiplyMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultiplyMatrixView.swift; path = "NM_1/Algorithm view/MultiplyMatrixView.swift"; sourceTree = SOURCE_ROOT; };
 		B9E13DC124B8C39B00A0ECB0 /* DegreeMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DegreeMatrixView.swift; sourceTree = "<group>"; };
 		B9E13DC324B8C3C300A0ECB0 /* MatrixDeterminantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixDeterminantView.swift; sourceTree = "<group>"; };
 		B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAEView.swift; sourceTree = "<group>"; };
@@ -156,17 +162,14 @@
 				B9E13DAE24B7D4E300A0ECB0 /* Other */,
 				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
 				B97124C0246002B700CF3439 /* ContentView.swift */,
-				B96533232502C3C700D5B5C4 /* GraphView.swift */,
 				B9BB4354250A42A100116B02 /* Labs */,
 				B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */,
-				B9BB434C2506E75B00116B02 /* GraphsView.swift */,
 				B9E13DBA24B87F2100A0ECB0 /* DataView.swift */,
 				B9BB4355250A42BC00116B02 /* Grapfs */,
 				B9E13DB824B87EF100A0ECB0 /* Data.swift */,
 				B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */,
 				B9AA760324F05BA9005C4E8F /* Test2UIView.swift */,
 				B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */,
-				B9653325250316BB00D5B5C4 /* Graphs.swift */,
 				B9712508246457EC00CF3439 /* Matrix */,
 				B97124C2246002BD00CF3439 /* Assets.xcassets */,
 				B97124C7246002BD00CF3439 /* LaunchScreen.storyboard */,
@@ -218,6 +221,9 @@
 			children = (
 				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
 				B9BB435225096ED400116B02 /* Lab1.1View.swift */,
+				B905E3D3250E7724001D657B /* Lab1.2View.swift */,
+				B905E3D5250EB139001D657B /* Lab1.3View.swift */,
+				B905E3D1250E770D001D657B /* Lab3.2View.swift */,
 				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
 			);
 			path = Labs;
@@ -226,6 +232,9 @@
 		B9BB4355250A42BC00116B02 /* Grapfs */ = {
 			isa = PBXGroup;
 			children = (
+				B9653325250316BB00D5B5C4 /* Graphs.swift */,
+				B9BB434C2506E75B00116B02 /* GraphsView.swift */,
+				B96533232502C3C700D5B5C4 /* GraphView.swift */,
 			);
 			path = Grapfs;
 			sourceTree = "<group>";
@@ -247,7 +256,7 @@
 			children = (
 				B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */,
 				B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */,
-				B9E13DBF24B8C37700A0ECB0 /* MultiplyMatrixView.swift */,
+				B9BB4356250A448000116B02 /* MultiplyMatrixView.swift */,
 				B9E13DC124B8C39B00A0ECB0 /* DegreeMatrixView.swift */,
 				B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */,
 				B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */,
@@ -392,9 +401,9 @@
 				B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */,
 				B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */,
 				B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */,
-				B9E13DC924B8C82100A0ECB0 /* MultiplyMatrixView.swift in Sources */,
 				B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */,
 				B9E13DB624B7FF9F00A0ECB0 /* AppDelegate.swift in Sources */,
+				B905E3D4250E7724001D657B /* Lab1.2View.swift in Sources */,
 				B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */,
 				B9E13DB724B7FFAA00A0ECB0 /* SummarizeMatrixView.swift in Sources */,
 				B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */,
@@ -403,6 +412,7 @@
 				B9E13DBB24B87F2100A0ECB0 /* DataView.swift in Sources */,
 				B9653326250316BB00D5B5C4 /* Graphs.swift in Sources */,
 				B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */,
+				B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */,
 				B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */,
 				B9E13DC224B8C39B00A0ECB0 /* DegreeMatrixView.swift in Sources */,
 				B97124BF246002B700CF3439 /* SceneDelegate.swift in Sources */,
@@ -411,7 +421,9 @@
 				B971250F246457EC00CF3439 /* Matrix.swift in Sources */,
 				B9AA760424F05BA9005C4E8F /* Test2UIView.swift in Sources */,
 				B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */,
+				B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */,
 				B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */,
+				B9BB4357250A448000116B02 /* MultiplyMatrixView.swift in Sources */,
 				B9E13DAA24B7BF4400A0ECB0 /* TmpEditView.swift in Sources */,
 				B97124C1246002B700CF3439 /* ContentView.swift in Sources */,
 				B971250D246457EC00CF3439 /* ComplexNumbers.swift in Sources */,

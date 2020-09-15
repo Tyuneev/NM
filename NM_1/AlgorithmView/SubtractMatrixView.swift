@@ -20,7 +20,7 @@ struct SubtractMatrixView: View {
                    ChangeableMatrixView(matrix: B).padding()
                    Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                }
-            }
+            }.layoutPriority(4)
             ScrollView(.horizontal){
                HStack{
                    Image(systemName: "equal").font(.system(size: 16, weight: .regular)).padding()

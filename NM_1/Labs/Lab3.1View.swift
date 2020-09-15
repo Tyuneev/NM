@@ -36,7 +36,7 @@ struct Lab3_1View: View {
 //                    Text("Интерполяционный многочлен Ньютона = \(prepearGraphs.graphs[2].GetPoint(Double(X) ?? 0) ?? 0)")
 //                    Text("Интерполяционный многочлен Лагранжа = \(prepearGraphs.graphs[1].GetPoint(Double(X) ?? 0) ?? 0)")
                 }
-                Text(t())
+                    // Text(t())
             }.background(
                 RoundedRectangle(cornerRadius: 10)
                     .fill(Color.blue.opacity(0.3)
@@ -55,12 +55,6 @@ struct Lab3_1View: View {
 //        }
 //    }
     
-    func t()-> String{
-        var m = self.$pointsX.WarpedMatrix
-        
-        
-        return "   "
-    }
 }
 
 struct Lab3_1View_Previews: PreviewProvider {
