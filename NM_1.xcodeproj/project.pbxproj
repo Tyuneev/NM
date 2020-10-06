@@ -10,8 +10,12 @@
 		B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D1250E770D001D657B /* Lab3.2View.swift */; };
 		B905E3D4250E7724001D657B /* Lab1.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D3250E7724001D657B /* Lab1.2View.swift */; };
 		B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D5250EB139001D657B /* Lab1.3View.swift */; };
-		B96533242502C3C700D5B5C4 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96533232502C3C700D5B5C4 /* GraphView.swift */; };
-		B9653326250316BB00D5B5C4 /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9653325250316BB00D5B5C4 /* Graphs.swift */; };
+		B905E43E252B8192001D657B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43C252B8192001D657B /* Realm.framework */; };
+		B905E43F252B8192001D657B /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43C252B8192001D657B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B905E440252B8192001D657B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43D252B8192001D657B /* RealmSwift.framework */; };
+		B905E441252B8192001D657B /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43D252B8192001D657B /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B905E448252BA104001D657B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E447252BA104001D657B /* GraphView.swift */; };
+		B905E44B252BA148001D657B /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E44A252BA148001D657B /* Graphs.swift */; };
 		B97124BF246002B700CF3439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124BE246002B700CF3439 /* SceneDelegate.swift */; };
 		B97124C1246002B700CF3439 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124C0246002B700CF3439 /* ContentView.swift */; };
 		B97124C3246002BD00CF3439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97124C2246002BD00CF3439 /* Assets.xcassets */; };
@@ -64,12 +68,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B905E442252B8192001D657B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B905E441252B8192001D657B /* RealmSwift.framework in Embed Frameworks */,
+				B905E43F252B8192001D657B /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B905E3D1250E770D001D657B /* Lab3.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.2View.swift; sourceTree = "<group>"; };
 		B905E3D3250E7724001D657B /* Lab1.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.2View.swift; sourceTree = "<group>"; };
 		B905E3D5250EB139001D657B /* Lab1.3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.3View.swift; sourceTree = "<group>"; };
-		B96533232502C3C700D5B5C4 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GraphView.swift; path = NM_1/Grapfs/GraphView.swift; sourceTree = SOURCE_ROOT; };
-		B9653325250316BB00D5B5C4 /* Graphs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Graphs.swift; path = NM_1/Grapfs/Graphs.swift; sourceTree = SOURCE_ROOT; };
+		B905E43C252B8192001D657B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../Библиотеки/realm-5.4.7/ios/swift-12.0/Realm.framework"; sourceTree = "<group>"; };
+		B905E43D252B8192001D657B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../Библиотеки/realm-5.4.7/ios/swift-12.0/RealmSwift.framework"; sourceTree = "<group>"; };
+		B905E447252BA104001D657B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		B905E44A252BA148001D657B /* Graphs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphs.swift; sourceTree = "<group>"; };
 		B97124B9246002B700CF3439 /* NM_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NM_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97124BC246002B700CF3439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97124BE246002B700CF3439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,7 +108,7 @@
 		B9712509246457EC00CF3439 /* ComplexNumbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexNumbers.swift; sourceTree = "<group>"; };
 		B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EigenValuesAndVectors.swift; sourceTree = "<group>"; };
 		B971250B246457EC00CF3439 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
-		B971250C246457EC00CF3439 /* SLAE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLAE.swift; path = NM_1/Matrix/SLAE.swift; sourceTree = SOURCE_ROOT; };
+		B971250C246457EC00CF3439 /* SLAE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLAE.swift; path = NM_1/Matrix/Algorithm/SLAE.swift; sourceTree = SOURCE_ROOT; };
 		B9AA760324F05BA9005C4E8F /* Test2UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2UIView.swift; sourceTree = "<group>"; };
 		B9BB434C2506E75B00116B02 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		B9BB434E25083ED800116B02 /* Lab3.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.1View.swift; sourceTree = "<group>"; };
@@ -116,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B905E440252B8192001D657B /* RealmSwift.framework in Frameworks */,
+				B905E43E252B8192001D657B /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +159,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B905E422252B7DBC001D657B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B905E43C252B8192001D657B /* Realm.framework */,
+				B905E43D252B8192001D657B /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B905E443252B9FCD001D657B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B9E13DB824B87EF100A0ECB0 /* Data.swift */,
+				B9E13DBA24B87F2100A0ECB0 /* DataView.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B905E444252B9FFD001D657B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */,
+				B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B905E445252BA027001D657B /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				B9712509246457EC00CF3439 /* ComplexNumbers.swift */,
+				B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */,
+				B971250C246457EC00CF3439 /* SLAE.swift */,
+				B971250B246457EC00CF3439 /* Matrix.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
+		B905E446252BA058001D657B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B905E447252BA104001D657B /* GraphView.swift */,
+				B9BB434C2506E75B00116B02 /* GraphsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B905E449252BA11A001D657B /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				B905E44A252BA148001D657B /* Graphs.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
 		B97124B0246002B700CF3439 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +221,7 @@
 				B97124D2246002BD00CF3439 /* NM_1Tests */,
 				B97124DD246002BD00CF3439 /* NM_1UITests */,
 				B97124BA246002B700CF3439 /* Products */,
+				B905E422252B7DBC001D657B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,17 +238,15 @@
 		B97124BB246002B700CF3439 /* NM_1 */ = {
 			isa = PBXGroup;
 			children = (
-				B9E13DAE24B7D4E300A0ECB0 /* Other */,
-				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
-				B97124C0246002B700CF3439 /* ContentView.swift */,
-				B9BB4354250A42A100116B02 /* Labs */,
+				B97124BC246002B700CF3439 /* AppDelegate.swift */,
+				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
 				B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */,
-				B9E13DBA24B87F2100A0ECB0 /* DataView.swift */,
+				B97124C0246002B700CF3439 /* ContentView.swift */,
+				B9E13DAE24B7D4E300A0ECB0 /* tmp */,
+				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
+				B9BB4354250A42A100116B02 /* LabsView */,
+				B905E443252B9FCD001D657B /* Data */,
 				B9BB4355250A42BC00116B02 /* Grapfs */,
-				B9E13DB824B87EF100A0ECB0 /* Data.swift */,
-				B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */,
-				B9AA760324F05BA9005C4E8F /* Test2UIView.swift */,
-				B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */,
 				B9712508246457EC00CF3439 /* Matrix */,
 				B97124C2246002BD00CF3439 /* Assets.xcassets */,
 				B97124C7246002BD00CF3439 /* LaunchScreen.storyboard */,
@@ -208,15 +285,13 @@
 		B9712508246457EC00CF3439 /* Matrix */ = {
 			isa = PBXGroup;
 			children = (
-				B9712509246457EC00CF3439 /* ComplexNumbers.swift */,
-				B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */,
-				B971250B246457EC00CF3439 /* Matrix.swift */,
-				B971250C246457EC00CF3439 /* SLAE.swift */,
+				B905E445252BA027001D657B /* Algorithm */,
+				B905E444252B9FFD001D657B /* View */,
 			);
 			path = Matrix;
 			sourceTree = "<group>";
 		};
-		B9BB4354250A42A100116B02 /* Labs */ = {
+		B9BB4354250A42A100116B02 /* LabsView */ = {
 			isa = PBXGroup;
 			children = (
 				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
@@ -226,29 +301,27 @@
 				B905E3D1250E770D001D657B /* Lab3.2View.swift */,
 				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
 			);
-			path = Labs;
+			path = LabsView;
 			sourceTree = "<group>";
 		};
 		B9BB4355250A42BC00116B02 /* Grapfs */ = {
 			isa = PBXGroup;
 			children = (
-				B9653325250316BB00D5B5C4 /* Graphs.swift */,
-				B9BB434C2506E75B00116B02 /* GraphsView.swift */,
-				B96533232502C3C700D5B5C4 /* GraphView.swift */,
+				B905E449252BA11A001D657B /* Algorithm */,
+				B905E446252BA058001D657B /* View */,
 			);
 			path = Grapfs;
 			sourceTree = "<group>";
 		};
-		B9E13DAE24B7D4E300A0ECB0 /* Other */ = {
+		B9E13DAE24B7D4E300A0ECB0 /* tmp */ = {
 			isa = PBXGroup;
 			children = (
 				B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */,
-				B97124BC246002B700CF3439 /* AppDelegate.swift */,
+				B9AA760324F05BA9005C4E8F /* Test2UIView.swift */,
 				B9E13DAB24B7CF6C00A0ECB0 /* TmpCode.swift */,
 				B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */,
-				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
 			);
-			path = Other;
+			path = tmp;
 			sourceTree = "<group>";
 		};
 		B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */ = {
@@ -276,6 +349,7 @@
 				B97124B5246002B700CF3439 /* Sources */,
 				B97124B6246002B700CF3439 /* Frameworks */,
 				B97124B7246002B700CF3439 /* Resources */,
+				B905E442252B8192001D657B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,7 +471,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B96533242502C3C700D5B5C4 /* GraphView.swift in Sources */,
 				B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */,
 				B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */,
 				B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */,
@@ -407,11 +480,12 @@
 				B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */,
 				B9E13DB724B7FFAA00A0ECB0 /* SummarizeMatrixView.swift in Sources */,
 				B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */,
+				B905E44B252BA148001D657B /* Graphs.swift in Sources */,
 				B9E13DC424B8C3C300A0ECB0 /* MatrixDeterminantView.swift in Sources */,
 				B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */,
 				B9E13DBB24B87F2100A0ECB0 /* DataView.swift in Sources */,
-				B9653326250316BB00D5B5C4 /* Graphs.swift in Sources */,
 				B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */,
+				B905E448252BA104001D657B /* GraphView.swift in Sources */,
 				B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */,
 				B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */,
 				B9E13DC224B8C39B00A0ECB0 /* DegreeMatrixView.swift in Sources */,
@@ -599,6 +673,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NM_1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
 				INFOPLIST_FILE = NM_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -618,6 +693,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NM_1/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
 				INFOPLIST_FILE = NM_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,6 +712,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
 				INFOPLIST_FILE = NM_1Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -677,6 +754,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
 				INFOPLIST_FILE = NM_1UITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

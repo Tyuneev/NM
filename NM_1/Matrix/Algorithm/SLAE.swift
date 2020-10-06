@@ -9,7 +9,6 @@
 import Foundation
 
 func SolveSLAE(A: Matrix, B: Matrix) -> Matrix? {
-    
     guard let Res = SolveSLAE(LUdecomposition: A.LUdecomposition(), B: B.Transpose().elements[0]) else{
         return nil
     }
@@ -121,7 +120,7 @@ func SolveSLAE_SimpleIterationMethod<T: DoubleConvertible>(A: Matrix?, B: [T]?, 
     var a = Matrix(rows: n, columns: n, defaultValue: 0.0)
     for i in 0..<n{
         b[i] = B[i].ConvertToDouble()/A[i,i]
-        for j in 0..<n{
+        for j in 0..<n {
             a[i,j] = (i==j ? 0.0 : -A[i,j]/A[i,i])
         }
     }
@@ -165,6 +164,5 @@ func SolveSLAERunMethod(A: Matrix, B: Matrix) -> Matrix? {
     guard m == A, let res = SolveSALE(a: a, b: b, c: c, d: d) else {
         return nil
     }
-    
     return Matrix([res]).Transpose()
 }

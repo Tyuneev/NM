@@ -7,13 +7,77 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct SavedMatrix: Identifiable {
+struct SavedMatrix: Identifiable, Codable {
     var id = UUID()
     var name: String
     var matrix: Matrix
 }
 
+
+class SavedMatrixObject: Object {
+    @objc dynamic var data: Data? = nil
+    var matrix: SavedMatrix? {
+        get {
+            if let matrix = data {
+                return try? JSONDecoder().decode(SavedMatrix.self, from: matrix)
+            }
+            return nil
+        }
+        set(newValue){
+            data = try? JSONEncoder().encode(newValue)
+        }
+    }
+}
+
+struct RealmManager{
+    let realm: Realm?
+    init(){
+        realm = try? Realm()
+    }
+    func getMatrix() -> [SavedMatrix]{
+        return self.getMatrixObjects().compactMap{$0.matrix}
+    }
+    
+    func getMatrixObjects() -> [SavedMatrixObject]{
+        var Result: [SavedMatrixObject] = []
+        if  let result =  realm?.objects(SavedMatrixObject.self){
+            for matrixObjects in result{
+                Result.append(matrixObjects)
+            }
+        }
+        return Result
+    }
+    
+    func deleteMatrix(atOffsets offset: IndexSet){
+        let objects = self.getMatrixObjects()
+        guard let i = offset.first,
+              objects.count > i
+              else {
+            return
+        }
+        try? realm?.write {
+                realm?.delete(objects[i])
+        }
+    }
+    func addMatrix(matrix: Matrix, withName name: String){
+        do {
+            try self.realm?.write() {
+                let savedMatrix = SavedMatrix(name: name, matrix: matrix)
+                var newMatrix = self.realm?.create(SavedMatrixObject.self)
+                newMatrix?.matrix = savedMatrix
+            }
+        } catch {
+            print("Saving eror")
+        }
+    }
+    func tmp(){
+        MatrixArr.forEach {m in
+            self.addMatrix(matrix: m.matrix, withName: m.name)
+        }
+    }
+}
 
 var MatrixArr = [
         SavedMatrix(name: "M1", matrix:

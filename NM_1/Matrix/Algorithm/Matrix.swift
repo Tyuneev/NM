@@ -9,7 +9,7 @@
 import Foundation
 import Darwin
 
-struct Matrix {
+struct Matrix: Codable {
     var elements: [[Double]] = []
     var rows: Int, columns: Int
 

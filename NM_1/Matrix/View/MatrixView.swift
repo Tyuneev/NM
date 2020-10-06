@@ -82,7 +82,7 @@ struct ChangeableMatrixView: View {
         case .SaveMatrixView://alert.addTextField
             return AnyView(SaveMatrixView(matrix: self.matrix.WarpedMatrix))
         case .ChoosSavedMatrixView:
-            return AnyView(DataForChoosView(matrix: self.matrix, data: MatrixArr))
+            return AnyView(DataForChoosView(matrix: self.matrix))
         case .No:
             return AnyView(EmptyView())
         }

@@ -21,6 +21,7 @@ struct LabMenuView: View {
                     NavigationLink(destination: Lab1_3View()){
                         Text("1.3 Решение СЛАУ методами ...")
                     }
+                    
                     NavigationLink(destination:
                                 SubtractMatrixView(
                             A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
@@ -47,25 +48,26 @@ struct LabMenuView: View {
                         MatrixLUDecompositionView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
                         Text("LU разложение")
                     }
-                    NavigationLink(destination:
-                        MatrixDeterminantView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-                        Text("Определитель матрицы")
-                    }
-                    NavigationLink(destination:
-                        InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-                        Text("Обратная матрицa")
-                    }
-                    
-                    
-                    //Divider()
-//
 //                    NavigationLink(destination:
-//                        DataView(data: MatrixArr)){
-//                            Text("Сохраненные матрицы")
+//                        MatrixDeterminantView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+//                        Text("Определитель матрицы")
 //                    }
+//                    NavigationLink(destination:
+//                        InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
+//                        Text("Обратная матрицa")
+//                    }
+                
+                    
+                    
+//                    Divider()
+//
+                    NavigationLink(destination:
+                        DataView()){
+                        Text("Сохраненные матрицы")
+
+                    }
                 }
-                .navigationBarTitle(Text("Лаболаторные")
-                .font(.title))
+                .navigationBarTitle(Text("Лаболаторные"))
         }
     }
 }
