@@ -8,11 +8,13 @@
 
 import Foundation
 
-func EigenValueQRDM(A: Matrix, Accuracy: Double) -> [Complex]?{
+func EigenValueQRDM(A: Matrix, Accuracy: Double) -> ([Complex], Int)?{
     let n = A.columns
     var a = A
     var ComlexValues = [Int: Complex]()
+    var count = 0
     while true{
+        count += 1
         var end = true
         a.printMatrix()
         for i in 0..<n-1{
@@ -56,17 +58,19 @@ func EigenValueQRDM(A: Matrix, Accuracy: Double) -> [Complex]?{
         EigenValues[i.key] = i.value
         EigenValues[i.key+1] = i.value.Conjugate
     }
-    return EigenValues
+    return (EigenValues, count)
 }
 
-func EigenValueAndVectorsRM(A: Matrix, Accuracy: Double) -> ([Double], [[Double]])?{
+func EigenValueAndVectorsRM(A: Matrix, Accuracy: Double) -> ([Double], [Matrix], Int)?{
     guard A == A.Transpose() ||  A.columns != A.rows else{
         return nil
     }
     let n = A.columns
     var a = A
     var EigenvectorsMatric = Matrix(IdentityWithSize: n)
+    var count = 0
     while true{
+        count += 1
         a.printMatrix()
         var max = 0.0; var I = 0; var J = 0; var criterion = 0.0
         for i in 0..<n{
@@ -95,8 +99,11 @@ func EigenValueAndVectorsRM(A: Matrix, Accuracy: Double) -> ([Double], [[Double]
         EigenvectorsMatric = EigenvectorsMatric*U
     }
     var Eigenvalue = [Double]()
+    var Eigenvectors: [Matrix] = []
+    EigenvectorsMatric = EigenvectorsMatric.Transpose()
     for i in 0..<n{
         Eigenvalue.append(a[i,i])
+        Eigenvectors.append(Matrix([EigenvectorsMatric.elements[i]]).Transpose())
     }
-    return(Eigenvalue, (EigenvectorsMatric.Transpose()).elements)
+    return(Eigenvalue, Eigenvectors, count)
 }

@@ -196,7 +196,11 @@ struct Matrix: Codable {
     }
     mutating func AddRow(){
         self.rows += 1
-        self.elements.append([Double](repeating: 0.0, count: self.columns))
+        if self.elements.count < rows{
+            self.elements.append([Double](repeating: 0.0, count: self.columns))
+        } else {
+            self.elements[rows-1] = [Double](repeating: 0.0, count: self.columns)
+        }
     }
     mutating func AddColumn(){
         self.columns += 1
@@ -207,8 +211,8 @@ struct Matrix: Codable {
 
     mutating func RemoveRow(){
         if self.rows > 1 {
-            self.elements.removeLast()
             self.rows -= 1
+            //self.elements.removeLast()
         }
     }
     mutating func RemoveColumn(){
@@ -265,7 +269,10 @@ struct Matrix: Codable {
     }
     
     static func ^(Left : Matrix, Right : Int) -> Matrix {
-        var Result = Left
+        var Result = Matrix(IdentityWithSize: Left.rows)
+        guard Right > 0 else {
+            return Result
+        }
         for _ in 0..<Right{
             Result = Result * Left
         }

@@ -9,13 +9,15 @@
 import SwiftUI
 
 struct SLAEView: View {
-    @ObservedObject var A: ObservableMatrix
-    @ObservedObject var B: ObservableMatrix
+    @EnvironmentObject var A: ObservableMatrix
+    @EnvironmentObject var B: ObservableMatrix
     var body: some View {
         ScrollView(.vertical){
             ScrollView(.horizontal){
                 HStack(){
-                    ChangeableMatrixView(matrix: A).padding()
+                    ChangeableMatrixView()
+                        .environmentObject(A)
+                        .padding()
                     Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
                     Text("X")
                         .frame(width: 30, height: 50)
@@ -23,7 +25,9 @@ struct SLAEView: View {
                         .fill(Color.blue.opacity(0.3)))
                         .padding()
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
-                    ChangeableMatrixView(matrix: B).padding()
+                    ChangeableMatrixView()
+                        .environmentObject(B)
+                        .padding()
                     
                 }
             }
@@ -41,8 +45,8 @@ struct SLAEView: View {
     }
 }
 
-struct SLAEView_Previews: PreviewProvider {
-    static var previews: some View {
-        SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))
-    }
-}
+//struct SLAEView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))
+//    }
+//}

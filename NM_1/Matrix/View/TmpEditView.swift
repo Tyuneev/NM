@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct TmpEditView: View {
-    let EditColumnNumber: Bool
-    let EditRowNumber: Bool
-    @ObservedObject var matrix: ObservableMatrix
+    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var matrix: ObservableMatrix
+    
     var body: some View {
         GeometryReader { (deviceSize: GeometryProxy) in
             ScrollView(.vertical){
@@ -19,10 +19,10 @@ struct TmpEditView: View {
                     HStack{
                         VStack{
                             ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
+                                let nf = self.settings.numberFormater
                                 HStack {
                                     ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                                        TextField("", value: self.$matrix.WarpedMatrix.elements[i][j], formatter: NumberFormatter())
-                                            //.frame(width: String(self.matrix.WarpedMatrix.elements[i][j]).count*4)
+                                        TextField("", value: self.$matrix.WarpedMatrix.elements[i][j], formatter: nf)
                                             .textFieldStyle(RoundedBorderTextFieldStyle())
                                             .keyboardType(.decimalPad)
                                     }
@@ -35,16 +35,23 @@ struct TmpEditView: View {
                                     .padding(.horizontal, 5)
                                     .foregroundColor(Color.red)
                                     .onTapGesture {
-                                        if self.EditColumnNumber{ self.matrix.WarpedMatrix.RemoveRow()
+                                        if self.matrix.unchangingNumberOfColumns == false { self.matrix.WarpedMatrix.RemoveRow()
+                                            if self.matrix.isSquare{
+                                                self.matrix.WarpedMatrix.RemoveColumn()
+                                            }
                                         }
+                                        
                                     }
                                 Image(systemName: "plus.circle")
                                     .font(.system(size: 18))
                                     .padding(.horizontal, 5)
                                     .foregroundColor(Color.green)
                                     .onTapGesture {
-                                        if self.EditColumnNumber {
+                                        if self.matrix.unchangingNumberOfRows == false {
                                             self.matrix.WarpedMatrix.AddRow()
+                                            if self.matrix.isSquare{
+                                                self.matrix.WarpedMatrix.AddColumn()
+                                            }
                                         }
                                     }
                             }
@@ -56,8 +63,11 @@ struct TmpEditView: View {
                                 .padding(.vertical, 5)
                                 .foregroundColor(Color.green)
                                 .onTapGesture {
-                                    if self.EditRowNumber {
+                                    if self.matrix.unchangingNumberOfColumns == false {
                                         self.matrix.WarpedMatrix.AddColumn()
+                                        if self.matrix.isSquare{
+                                            self.matrix.WarpedMatrix.AddRow()
+                                        }
                                     }
                                 }
                             Image(systemName: "minus.circle")
@@ -65,8 +75,12 @@ struct TmpEditView: View {
                                 .padding(.horizontal, 5)
                                 .foregroundColor(Color.red)
                                 .onTapGesture {
-                                    if self.EditRowNumber {
+                                    if self.matrix.unchangingNumberOfColumns == false {
                                         self.matrix.WarpedMatrix.RemoveColumn()
+                                        if self.matrix.isSquare{
+                                            self.matrix.WarpedMatrix.RemoveRow()
+                                        }
+
                                     }
                                 }
                         }
@@ -74,8 +88,7 @@ struct TmpEditView: View {
                     .frame(height: deviceSize.size.height*0.9)
                         .padding()
                 }
-                .frame(width: deviceSize.size.width*0.9,
-                        height: deviceSize.size.height*0.9)
+                .frame(width: deviceSize.size.width*0.9, height: deviceSize.size.height*0.9)
                 Spacer().frame(height: deviceSize.size.height*0.5)
             }
         }
@@ -83,16 +96,14 @@ struct TmpEditView: View {
     }
 }
 
-struct TmpEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        TmpEditView(
-            EditColumnNumber: true,
-            EditRowNumber: true,
-            matrix: ObservableMatrix(
-                Matrix([[10,2,3,0,0,0],
-                        [3,2.20005,1,0,0,0],
-                        [5,6,7,0,0,0]])
-            )
-        )
-    }
-}
+//struct TmpEditView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TmpEditView()
+//            .environmentObject(ObservableMatrix(
+//                Matrix([[10,2,3,0,0,0],
+//                        [3,2.20005,1,0,0,0],
+//                        [5,6,7,0,0,0]])
+//            )
+//        )
+//    }
+//}

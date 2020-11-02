@@ -9,12 +9,14 @@
 import SwiftUI
 
 struct InversMatrixView: View {
-    @ObservedObject var A: ObservableMatrix
+    @EnvironmentObject var A: ObservableMatrix
     var body: some View {
         ScrollView(.vertical){
             ScrollView(.horizontal){
                 HStack{
-                    ChangeableMatrixView(matrix: A).padding()
+                    ChangeableMatrixView()
+                        .environmentObject(A)
+                        .padding()
                     VStack{
                         Text("-1")
                         Spacer()
@@ -31,9 +33,9 @@ struct InversMatrixView: View {
         }
     }
 }
-
-struct InversMatrixView_Previews: PreviewProvider {
-    static var previews: some View {
-        InversMatrixView(A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))
-    }
-}
+//
+//struct InversMatrixView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        InversMatrixView(A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))
+//    }
+//}

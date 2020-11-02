@@ -27,12 +27,16 @@
 		B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */; };
 		B971250F246457EC00CF3439 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250B246457EC00CF3439 /* Matrix.swift */; };
 		B9712510246457EC00CF3439 /* SLAE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250C246457EC00CF3439 /* SLAE.swift */; };
+		B9A5DE94254F600F00BF822E /* Lab3.3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5DE93254F600F00BF822E /* Lab3.3View.swift */; };
 		B9AA760424F05BA9005C4E8F /* Test2UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AA760324F05BA9005C4E8F /* Test2UIView.swift */; };
 		B9BB434D2506E75B00116B02 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB434C2506E75B00116B02 /* GraphsView.swift */; };
 		B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB434E25083ED800116B02 /* Lab3.1View.swift */; };
 		B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB435025096E3E00116B02 /* LabMenuView.swift */; };
 		B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB435225096ED400116B02 /* Lab1.1View.swift */; };
 		B9BB4357250A448000116B02 /* MultiplyMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB4356250A448000116B02 /* MultiplyMatrixView.swift */; };
+		B9CABAEF254AF8F700C9D975 /* Lab2.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */; };
+		B9CABAF6254B22AE00C9D975 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAF5254B22AE00C9D975 /* SettingsView.swift */; };
+		B9CABAFC254C3A3900C9D975 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAFB254C3A3900C9D975 /* Settings.swift */; };
 		B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */; };
 		B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */; };
 		B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */; };
@@ -49,6 +53,8 @@
 		B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */; };
 		B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */; };
 		B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */; };
+		B9F15B4F253F120200023345 /* Lab1.4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F15B4E253F120200023345 /* Lab1.4View.swift */; };
+		B9F15B55253F13E500023345 /* Lab1.5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F15B54253F13E500023345 /* Lab1.5View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,12 +115,16 @@
 		B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EigenValuesAndVectors.swift; sourceTree = "<group>"; };
 		B971250B246457EC00CF3439 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		B971250C246457EC00CF3439 /* SLAE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLAE.swift; path = NM_1/Matrix/Algorithm/SLAE.swift; sourceTree = SOURCE_ROOT; };
+		B9A5DE93254F600F00BF822E /* Lab3.3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.3View.swift; sourceTree = "<group>"; };
 		B9AA760324F05BA9005C4E8F /* Test2UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2UIView.swift; sourceTree = "<group>"; };
 		B9BB434C2506E75B00116B02 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		B9BB434E25083ED800116B02 /* Lab3.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.1View.swift; sourceTree = "<group>"; };
 		B9BB435025096E3E00116B02 /* LabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabMenuView.swift; sourceTree = "<group>"; };
 		B9BB435225096ED400116B02 /* Lab1.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.1View.swift; sourceTree = "<group>"; };
 		B9BB4356250A448000116B02 /* MultiplyMatrixView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplyMatrixView.swift; sourceTree = "<group>"; };
+		B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2.1View.swift; sourceTree = "<group>"; };
+		B9CABAF5254B22AE00C9D975 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B9CABAFB254C3A3900C9D975 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOptionsView.swift; sourceTree = "<group>"; };
 		B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeMatrixView.swift; sourceTree = "<group>"; };
@@ -130,6 +140,8 @@
 		B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLUDecompositionView.swift; sourceTree = "<group>"; };
 		B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMatrixView.swift; sourceTree = "<group>"; };
 		B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InversMatrixView.swift; sourceTree = "<group>"; };
+		B9F15B4E253F120200023345 /* Lab1.4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.4View.swift; sourceTree = "<group>"; };
+		B9F15B54253F13E500023345 /* Lab1.5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.5View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +254,8 @@
 				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
 				B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */,
 				B97124C0246002B700CF3439 /* ContentView.swift */,
+				B9CABAF5254B22AE00C9D975 /* SettingsView.swift */,
+				B9CABAFB254C3A3900C9D975 /* Settings.swift */,
 				B9E13DAE24B7D4E300A0ECB0 /* tmp */,
 				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
 				B9BB4354250A42A100116B02 /* LabsView */,
@@ -298,8 +312,12 @@
 				B9BB435225096ED400116B02 /* Lab1.1View.swift */,
 				B905E3D3250E7724001D657B /* Lab1.2View.swift */,
 				B905E3D5250EB139001D657B /* Lab1.3View.swift */,
-				B905E3D1250E770D001D657B /* Lab3.2View.swift */,
+				B9F15B4E253F120200023345 /* Lab1.4View.swift */,
+				B9F15B54253F13E500023345 /* Lab1.5View.swift */,
+				B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */,
 				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
+				B9A5DE93254F600F00BF822E /* Lab3.3View.swift */,
+				B905E3D1250E770D001D657B /* Lab3.2View.swift */,
 			);
 			path = LabsView;
 			sourceTree = "<group>";
@@ -473,6 +491,7 @@
 			files = (
 				B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */,
 				B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */,
+				B9A5DE94254F600F00BF822E /* Lab3.3View.swift in Sources */,
 				B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */,
 				B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */,
 				B9E13DB624B7FF9F00A0ECB0 /* AppDelegate.swift in Sources */,
@@ -484,7 +503,9 @@
 				B9E13DC424B8C3C300A0ECB0 /* MatrixDeterminantView.swift in Sources */,
 				B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */,
 				B9E13DBB24B87F2100A0ECB0 /* DataView.swift in Sources */,
+				B9CABAEF254AF8F700C9D975 /* Lab2.1View.swift in Sources */,
 				B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */,
+				B9F15B4F253F120200023345 /* Lab1.4View.swift in Sources */,
 				B905E448252BA104001D657B /* GraphView.swift in Sources */,
 				B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */,
 				B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */,
@@ -496,12 +517,15 @@
 				B9AA760424F05BA9005C4E8F /* Test2UIView.swift in Sources */,
 				B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */,
 				B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */,
+				B9CABAFC254C3A3900C9D975 /* Settings.swift in Sources */,
 				B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */,
 				B9BB4357250A448000116B02 /* MultiplyMatrixView.swift in Sources */,
 				B9E13DAA24B7BF4400A0ECB0 /* TmpEditView.swift in Sources */,
+				B9CABAF6254B22AE00C9D975 /* SettingsView.swift in Sources */,
 				B97124C1246002B700CF3439 /* ContentView.swift in Sources */,
 				B971250D246457EC00CF3439 /* ComplexNumbers.swift in Sources */,
 				B9E13DAC24B7CF6C00A0ECB0 /* TmpCode.swift in Sources */,
+				B9F15B55253F13E500023345 /* Lab1.5View.swift in Sources */,
 				B9E13DBD24B894CD00A0ECB0 /* MatrixView.swift in Sources */,
 				B9E13DBE24B8C1ED00A0ECB0 /* Data.swift in Sources */,
 			);

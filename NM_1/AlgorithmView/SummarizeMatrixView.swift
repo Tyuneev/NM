@@ -8,15 +8,18 @@
 
 import SwiftUI
 struct SummarizeMatrixView: View {
-    @ObservedObject var A: ObservableMatrix
-    @ObservedObject var B: ObservableMatrix
+    @EnvironmentObject var A: ObservableMatrix
+    @EnvironmentObject var B: ObservableMatrix
     var body: some View {
         ScrollView(.vertical){
             ScrollView(.horizontal){
                 HStack{
-                    ChangeableMatrixView(matrix: A).padding()
+                    ChangeableMatrixView()                        .environmentObject(A)
+                        .padding()
                     Image(systemName: "plus").font(.system(size: 16, weight: .regular))
-                    ChangeableMatrixView(matrix: B).padding()
+                    ChangeableMatrixView()
+                        .environmentObject(B)
+                        .padding()
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                 }
             }
@@ -32,8 +35,8 @@ struct SummarizeMatrixView: View {
     }
 }
 
-struct SummarizeMatrixView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummarizeMatrixView(A: ObservableMatrix(Matrix([[1,1],[1,1]])), B: ObservableMatrix(Matrix([[1,1],[1,1]])))
-    }
-}
+//struct SummarizeMatrixView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummarizeMatrixView(A: ObservableMatrix(Matrix([[1,1],[1,1]])), B: ObservableMatrix(Matrix([[1,1],[1,1]])))
+//    }
+//}

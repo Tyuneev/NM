@@ -13,19 +13,20 @@ struct ChangeableMatrixView: View {
     enum ActivSheetView {
         case EditView, SaveMatrixView, ChoosSavedMatrixView, No
     }
-    let EditColumnNumber = true
-    let EditRowNumber = true
-    @ObservedObject var matrix: ObservableMatrix
+    @EnvironmentObject var settings: UserSettings
+    @EnvironmentObject var matrix: ObservableMatrix
     @State private var showActionSheet = false
     @State private var showSeetView = false
     @State private var activSheet: ActivSheetView = .No
+    @State private var ShowEditor = false
 
     var body: some View {
         HStack(alignment: .bottom, spacing: 4){
             ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
                 VStack(alignment: .leading, spacing: 4) {
                     ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
-                        Text(String(self.matrix.WarpedMatrix[i, j]))
+                        let nf = self.settings.numberFormater
+                        Text(nf.string(from: NSNumber(value: self.matrix.WarpedMatrix[i, j])) ?? "")
                             .bold()
                             .font(.system(size: 15))
                             .frame(height: 35.0)
@@ -33,7 +34,6 @@ struct ChangeableMatrixView: View {
                             .layoutPriority(1)
                     }
                 }
-                //.frame(maxWidth: .infinity)
             }
         }
         .background(
@@ -41,21 +41,24 @@ struct ChangeableMatrixView: View {
                 .fill(Color.blue.opacity(0.3)
             )
         )
-        //.frame(maxWidth: .infinity)
-        .layoutPriority(1)
         .onTapGesture {
-           self.showSeetView = true
-           self.activSheet = .EditView
-        }
-        .onLongPressGesture {
             self.showActionSheet = true
+            //self.activSheet = .EditView
+            //self.showSeetView = true
         }
-
-        .sheet(isPresented: self.$showSeetView){
+        .sheet(isPresented: $showSeetView){
             self.SheetView()
         }
-        .actionSheet(isPresented: $showActionSheet, content: {
-            ActionSheet(title: Text("Действия").font(.title),
+//        .onLongPressGesture {
+//            self.showActionSheet = true
+//        }
+        .actionSheet(isPresented: $showActionSheet){
+            self.actionSheet()
+        }
+    }
+    
+    func actionSheet() -> ActionSheet{
+        return ActionSheet(title: Text("Действия").font(.title),
                 buttons: [
                     .cancel(),
 //                    .default(Text("Изменить"), action: {
@@ -63,42 +66,62 @@ struct ChangeableMatrixView: View {
 //                        self.activSheet = .EditView
 //                    }),
                     .default(Text("Сохранить"), action: {
-                        self.activSheet = .SaveMatrixView
-                        self.showSeetView = true
+                        UIApplication.shared.windows.first?.rootViewController?.present(self.SavingAlert(), animated: true)
+                        //self.showSaveMatrixView = true
+                        
                     }),
-                    .default(Text("Применить другой алгоритм"), action: {
+                    .default(Text("Изменить"), action: {
+                        self.activSheet = .EditView
+                        self.showSeetView = true
                     }),
                     .default(Text("Выбрать из сохраненных"), action: {
                         self.activSheet = .ChoosSavedMatrixView
                         self.showSeetView = true
                     })
                 ])
-        })
     }
     func SheetView() -> AnyView {
         switch self.activSheet {
         case .EditView:
-            return AnyView(TmpEditView(EditColumnNumber: self.EditColumnNumber, EditRowNumber: self.EditRowNumber, matrix: self.matrix))
-        case .SaveMatrixView://alert.addTextField
+            return AnyView(TmpEditView().environmentObject(matrix))
+        case .SaveMatrixView:
             return AnyView(SaveMatrixView(matrix: self.matrix.WarpedMatrix))
         case .ChoosSavedMatrixView:
-            return AnyView(DataForChoosView(matrix: self.matrix))
+            return AnyView(DataForChoosView().environmentObject(matrix))
         case .No:
             return AnyView(EmptyView())
         }
     }
+    func SavingAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Сохранение матрицы", message: "", preferredStyle: .alert)
+        alert.addTextField(){ (text) in
+            text.placeholder = "имя матрицы"
+        }
+        let saving = UIAlertAction(title: "Сохранить", style: .default) {_ in
+            let name = alert.textFields![0].text ?? ""
+            if name != "" {
+                let realmeManager = RealmManager()
+                realmeManager.addMatrix(matrix: self.matrix.WarpedMatrix, withName: name)
+            }
+            
+        }
+        alert.addAction(saving)
+        return alert
+    }
 }
 
 struct UnchangeableMatrixView: View {
+    @EnvironmentObject var settings: UserSettings
     let matrix: Matrix
     @State private var showActionSheet = false
     @State private var showSaveMatrixView = false
+    
     var body: some View {
         HStack(alignment: .bottom, spacing: 0){
             ForEach(0..<self.matrix.columns, id: \.self){ j in
                 VStack(alignment: .leading, spacing: 0) {
                     ForEach(0..<self.matrix.rows, id: \.self){ i in
-                        Text(" " + String(self.matrix[i, j]) + "  ")
+                        Text(toString(self.matrix[i, j]))
                             .font(.system(size: 15))
                             .bold()
                             .frame(height: 35.0)
@@ -117,12 +140,34 @@ struct UnchangeableMatrixView: View {
             ActionSheet(title: Text("Действия").font(.title), buttons: [
                 .cancel(),
                 .default(Text("Сохранить"), action: {
-                    self.showSaveMatrixView = true}),
+                    UIApplication.shared.windows.first?.rootViewController?.present(self.SavingAlert(), animated: true)
+                    //self.showSaveMatrixView = true
+                    
+                }),
                 .default(Text("Применить другой алгоритм"), action: {
                     
                 })
             ])
         })
+    }
+    func toString(_ n: Double) -> String{
+        return self.settings.numberFormater.string(for: NSNumber(value: n)) ?? ""
+    }
+    func SavingAlert() -> UIAlertController {
+        let alert = UIAlertController(title: "Сохранение матрицы", message: "", preferredStyle: .alert)
+        alert.addTextField(){ (text) in
+            text.placeholder = "имя матрицы"
+        }
+        let saving = UIAlertAction(title: "Сохранить", style: .default) {_ in
+            let name = alert.textFields![0].text ?? ""
+            if name != "" {
+                let realmeManager = RealmManager()
+                realmeManager.addMatrix(matrix: self.matrix, withName: name)
+            }
+            
+        }
+        alert.addAction(saving)
+        return alert
     }
 }
 

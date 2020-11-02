@@ -20,7 +20,8 @@ struct Lab1_1View: View {
                 Text("Система линейных алгебраических уравнений:").font(.title).padding(.horizontal)
                 ScrollView(.horizontal){
                     HStack(){
-                        ChangeableMatrixView(matrix: A)
+                        ChangeableMatrixView()
+                            .environmentObject(A)
                             .layoutPriority(2)
                             .padding()
                         Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
@@ -30,7 +31,8 @@ struct Lab1_1View: View {
                             .fill(Color.blue.opacity(0.3)))
                             .padding()
                         Image(systemName: "equal").font(.system(size: 16, weight: .regular))
-                        ChangeableMatrixView(matrix: B)
+                        ChangeableMatrixView()
+                            .environmentObject(B)
                             .padding()
                     }
                 }

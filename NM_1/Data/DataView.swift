@@ -14,6 +14,8 @@ struct DataView: View {
         self._matrix = State<Array<SavedMatrix>>(initialValue: realmeManager.getMatrix())
     }
     var realmeManager: RealmManager
+ 
+        
     @State var matrix: [SavedMatrix]
     var body: some View {
         List {
@@ -26,13 +28,13 @@ struct DataView: View {
                 realmeManager.deleteMatrix(atOffsets: $0)
                 self.matrix.remove(atOffsets: $0)
             }
-       }
+        }.listStyle(GroupedListStyle())
     }
 }
 
 struct DataForChoosView: View {
     let realmeManager = RealmManager()
-    @ObservedObject var matrix: ObservableMatrix
+    @EnvironmentObject var matrix: ObservableMatrix
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
        List {
@@ -44,7 +46,7 @@ struct DataForChoosView: View {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
-        }
+        }.listStyle(GroupedListStyle())
     }
 }
 

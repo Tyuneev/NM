@@ -24,6 +24,11 @@ struct Complex{
     static func -(Left: Complex, Right: Complex) -> Complex{
         return Complex(Re: Left.Re - Right.Re, Im: Left.Im - Right.Im)
     }
+    func toString() -> String {
+        if Im > 0 { return "\(Re) + i*\(Im)"}
+        if Im < 0 { return "\(Re) - i*\(-Im)"}
+        else  { return "\(Re)"}
+    }
     //+,-,<,*,...
 }
 

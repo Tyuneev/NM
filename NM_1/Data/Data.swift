@@ -64,9 +64,9 @@ struct RealmManager{
     func addMatrix(matrix: Matrix, withName name: String){
         do {
             try self.realm?.write() {
-                let savedMatrix = SavedMatrix(name: name, matrix: matrix)
-                var newMatrix = self.realm?.create(SavedMatrixObject.self)
-                newMatrix?.matrix = savedMatrix
+                var newMatrix: SavedMatrixObject?
+                newMatrix = self.realm?.create(SavedMatrixObject.self)
+                newMatrix?.matrix = SavedMatrix(name: name, matrix: matrix)
             }
         } catch {
             print("Saving eror")

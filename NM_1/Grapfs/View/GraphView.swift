@@ -18,7 +18,7 @@ struct GraphView: View {
                 self.makeOY(geometry)
                 self.markOXY(geometry)
                 self.addGraphs(geometry)
-            }
+            }.onAppear(graphs.)
         }
     }
     
@@ -101,19 +101,26 @@ struct GraphView: View {
                         CGPoint(
                             x: ($0.0 - self.graphs.minX) * kX,
                             y: ($0.1 - self.graphs.maxY) * kY)})
-            }.stroke()
+            }.stroke(graph.color)
         }
     }
 }
 
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(graphs: Graphs(graphs: [
-            Graph(function: {pow($0, 2.0)}, from: -2.0, to: 5.0, step: 0.1),
-            Graph(function: {-pow($0, 2.0) + 4.0}, from: -2.0, to: 5.0, step: 0.1),
-            Graph(function: {log($0)}, from: 0.1, to: 5, step: 0.1)], markOnX: 2.0, markOnY: 3)
-//            Graph(interpolatePoints: [0.1, 0.5, 0.9, 1.3].map{($0,log($0))}, method: .lagrange, step: 0.1)], points:
-//                [0.1, 0.5, 0.9, 1.3].map{Point(point: ($0,log($0)))}
-        )
+        Group {
+            GraphView(graphs: Graphs(graphs: [
+                Graph(function: {pow($0, 2.0)}, from: -2.0, to: 5.0, step: 0.1),
+                Graph(function: {-pow($0, 2.0) + 4.0}, from: -2.0, to: 5.0, step: 0.1),
+                Graph(function: {log($0)}, from: 0.1, to: 5, step: 0.1)], markOnX: 2.0, markOnY: 3)
+    //            Graph(interpolatePoints: [0.1, 0.5, 0.9, 1.3].map{($0,log($0))}, method: .lagrange, step: 0.1)], points:
+    //                [0.1, 0.5, 0.9, 1.3].map{Point(point: ($0,log($0)))}
+            )
+            GraphView(graphs: Graphs(graphs: [
+                                        Graph(function: {log($0)}, from: 0.1, to: 5, step: 0.1)], markOnX: 2.0, markOnY: 3)
+                      //            Graph(interpolatePoints: [0.1, 0.5, 0.9, 1.3].map{($0,log($0))}, method: .lagrange, step: 0.1)], points:
+                      //                [0.1, 0.5, 0.9, 1.3].map{Point(point: ($0,log($0)))}
+            ).padding(30)
+        }
     }
 }

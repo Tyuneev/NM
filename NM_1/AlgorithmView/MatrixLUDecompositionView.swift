@@ -9,13 +9,13 @@
 import SwiftUI
 
 struct MatrixLUDecompositionView: View {
-    @ObservedObject var A: ObservableMatrix
+    @EnvironmentObject var A: ObservableMatrix
     var body: some View {
         ScrollView(.vertical){
             VStack{
                 ScrollView(.horizontal){
                     HStack(){
-                        ChangeableMatrixView(matrix: A).padding()
+                        ChangeableMatrixView().environmentObject(A).padding()
                         Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                     }
                 }
@@ -42,8 +42,8 @@ struct MatrixLUDecompositionView: View {
     }
 }
 
-struct MatrixLUDecompositionView_Previews: PreviewProvider {
-    static var previews: some View {
-        MatrixLUDecompositionView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))
-    }
-}
+//struct MatrixLUDecompositionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MatrixLUDecompositionView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))
+//    }
+//}

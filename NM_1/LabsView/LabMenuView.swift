@@ -9,65 +9,63 @@
 import SwiftUI
 
 struct LabMenuView: View {
-        var body: some View {
-            NavigationView {
-                List{
-                    NavigationLink(destination: Lab1_1View()){
-                        Text("1.1 Определитель, обратная матрица, решение СЛАУ при помощи LU разложения")
-                    }
-                    NavigationLink(destination: Lab1_2View()){
-                        Text("1.2 Решение СЛАУ методом прогонки")
-                    }
-                    NavigationLink(destination: Lab1_3View()){
-                        Text("1.3 Решение СЛАУ методами ...")
-                    }
-                    
-                    NavigationLink(destination:
-                                SubtractMatrixView(
-                            A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
-                            B: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))){
-                        Text("Разность матриц")
-                    }
-                    NavigationLink(destination:
-                                MultiplyMatrixView(
-                            A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
-                            B: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))){
-                        Text("Произведение матриц")
-                    }
-                    NavigationLink(destination:
-                                DegreeMatrixView(
-                            A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))){
-                        Text("Возведение матрицы в степень")
-                    }
-                    NavigationLink(destination:
-                            SLAEView(A: ObservableMatrix(Matrix([[1,1,1],[1,1,1],[1,1,1]])), B: ObservableMatrix(Matrix([[1,1,1]]).Transpose()))){
-                        Text("Решение СЛАУ")
-                    }
-
-                    NavigationLink(destination:
-                        MatrixLUDecompositionView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-                        Text("LU разложение")
-                    }
-//                    NavigationLink(destination:
-//                        MatrixDeterminantView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-//                        Text("Определитель матрицы")
-//                    }
-//                    NavigationLink(destination:
-//                        InversMatrixView(A: ObservableMatrix(Matrix([[1,2,1],[1,1,1],[1,1,1]])))){
-//                        Text("Обратная матрицa")
-//                    }
-                
-                    
-                    
-//                    Divider()
-//
-                    NavigationLink(destination:
-                        DataView()){
-                        Text("Сохраненные матрицы")
-
+    var body: some View {
+        NavigationView {
+            List{
+                Section{
+                    NavigationLink(destination: MenuView()){
+                        Text("Все алогритмы")
                     }
                 }
-                .navigationBarTitle(Text("Лаболаторные"))
+                Section(header: Text("Лрболаторная 1")){
+                    NavigationLink(destination: Lab1_1View()){
+                        Text("Определитель, обратная матрица, решение СЛАУ при помощи LU разложения")
+                    }
+                    NavigationLink(destination: Lab1_2View()){
+                        Text("Решение СЛАУ методом прогонки")
+                    }
+                    NavigationLink(destination: Lab1_3View()){
+                        Text("Решение СЛАУ методами Зенделя и простых итераций")
+                    }
+                    NavigationLink(destination: Lab1_4View()){
+                        Text("Собственные значения и векторы симетрической матрицы")
+                    }
+                    NavigationLink(destination: Lab1_5View()){
+                        Text("Собственные значения через QR разложение")
+                    }
+                }
+                Section(header: Text("Лрболаторная 2")){
+                    NavigationLink(destination:  Lab2_1View()){
+                        Text("Решение нелинейных уравнеий")
+                    }
+                }
+                Section(header: Text("Лрболаторная 3")){
+                    NavigationLink(destination: Lab3_1View()){
+                        Text("Графики чето там...")
+                    }
+                    NavigationLink(destination: Lab3_2View()){
+                        Text("Приближающие многочлены")
+                    }
+                    
+                }
+                Section{
+                    NavigationLink(destination: DataView()){
+                        HStack{
+                            Image(systemName: "bookmark.fill")
+                            Text("Сохраненные матрицы")
+                        }
+                    }
+                    NavigationLink(destination: SettingsView()){
+                        HStack{
+                            Image(systemName: "gear")
+                            Text("Настройки")
+                        }
+                    }
+                }
+            }
+            .listStyle(GroupedListStyle())
+            .navigationBarTitle(Text("Лаболаторные"))
+
         }
     }
 }

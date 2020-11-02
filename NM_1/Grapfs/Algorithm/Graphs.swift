@@ -9,28 +9,54 @@ import SwiftUI
 import Foundation
 
 struct Graphs {
-    var graphs: [Graph] = []
-    var points: [Point] = []
-    var markOnX: Double = 1
-    var markOnY: Double = 1
+    let graphs: [Graph]
+    let points: [Point]
+    let markOnX: Double
+    let markOnY: Double
     
-    var minX: Double {
-        get { graphs.reduce(0){
-                min($0, $1.points.reduce(0){
-                    min($0, $1.0)})}}}
-    var maxX: Double {
-        get { graphs.reduce(0){
-                max($0, $1.points.reduce(0){
-                    max($0, $1.0)})}}}
-    var maxY: Double {
-        get { graphs.reduce(0){
-                max($0, $1.points.reduce(0){
-                    max($0, $1.1)})}}}
-    var minY: Double {
-        get { graphs.reduce(0){
-                min($0, $1.points.reduce(0){
-                    min($0, $1.1)})}}}
+    var minX: Double
+    var maxX: Double
+    var maxY: Double
+    var minY: Double
     
+    var kx = 0.0
+    var ky = 0.0
+    var height = 0.0
+    var width = 0.0
+    
+    func c
+    let kX = Double(g.size.width)/(self.graphs.maxX - self.graphs.minX)
+    let kY  = -Double(g.size.height)/(self.graphs.maxY - self.graphs.minY)
+    
+    
+    
+    init(graphs: [Graph], points: [Point] = [],  markOnX: Double = 1, markOnY: Double = 1){
+        self.graphs = graphs
+        self.points = points
+        self.markOnX = markOnX
+        self.markOnY = markOnY
+        self.minX = graphs.reduce(0){
+            min($0, $1.points.reduce(0){
+                min($0, $1.0)
+            })
+        }
+        self.maxX = graphs.reduce(0){
+            max($0, $1.points.reduce(0){
+                max($0, $1.0)
+                
+            })
+        }
+        self.maxY = graphs.reduce(0){
+            max($0, $1.points.reduce(0){
+                max($0, $1.1)
+            })
+        }
+        self.minY = graphs.reduce(0){
+            min($0, $1.points.reduce(0){
+                min($0, $1.1)
+            })
+        }
+    }
 }
 
 struct Point: Identifiable {
@@ -38,6 +64,7 @@ struct Point: Identifiable {
     var point: (Double, Double)
     var color: Color = Color.black
 }
+
 struct Graph: Identifiable {
     let id = UUID()
     var points: [(Double, Double)] = []
@@ -76,6 +103,7 @@ struct Graph: Identifiable {
             self.InterpolationMethod = CubicSpline(Points: interpolatePoints)
         case .msm:
             self.InterpolationMethod = MSM(Points: interpolatePoints, pow: pow ?? 1)
+        
         }
         
         var x = interpolatePoints.first!.0
@@ -84,6 +112,7 @@ struct Graph: Identifiable {
             x += step
         }
         points.append(interpolatePoints.last!)
+        print(points)
         
     }
     
@@ -118,6 +147,7 @@ struct Lagrange: interpolate{
         }
     }
 }
+
 struct Newton: interpolate{
     let Points: [(Double, Double)]
     let Table: [[Double]]
@@ -145,6 +175,7 @@ struct Newton: interpolate{
         return result
     }
 }
+
 struct CubicSpline: interpolate {
     let Points: [(Double, Double)]
     var a: [Double]

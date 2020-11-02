@@ -9,15 +9,18 @@
 import SwiftUI
 
 struct MultiplyMatrixView: View {
-    @ObservedObject var A: ObservableMatrix
-    @ObservedObject var B: ObservableMatrix
+    @EnvironmentObject var A: ObservableMatrix
+    @EnvironmentObject var B: ObservableMatrix
     var body: some View {
         ScrollView(.vertical){
             ScrollView(.horizontal){
                 HStack{
-                    ChangeableMatrixView(matrix: A).padding()
+                    ChangeableMatrixView()
+                        .environmentObject(A)
+                        .padding()
                     Image(systemName: "multiply").font(.system(size: 16, weight: .regular))
-                    ChangeableMatrixView(matrix: B)
+                    ChangeableMatrixView()
+                        environmentObject(B)
                     Image(systemName: "equal").font(.system(size: 16, weight: .regular))
                 }
             }
@@ -33,10 +36,10 @@ struct MultiplyMatrixView: View {
     }
 }
 
-struct MultiplyMatrixView_Previews: PreviewProvider {
-    static var previews: some View {
-        MultiplyMatrixView(
-        A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
-        B: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))
-    }
-}
+//struct MultiplyMatrixView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultiplyMatrixView(
+//        A: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])),
+//        B: ObservableMatrix(Matrix([[0,0,0],[0,0,0],[0,0,0]])))
+//    }
+//}
