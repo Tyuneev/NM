@@ -12,11 +12,6 @@ struct LabMenuView: View {
     var body: some View {
         NavigationView {
             List{
-                Section{
-                    NavigationLink(destination: MenuView()){
-                        Text("Все алогритмы")
-                    }
-                }
                 Section(header: Text("Лрболаторная 1")){
                     NavigationLink(destination: Lab1_1View()){
                         Text("Определитель, обратная матрица, решение СЛАУ при помощи LU разложения")
@@ -35,18 +30,40 @@ struct LabMenuView: View {
                     }
                 }
                 Section(header: Text("Лрболаторная 2")){
-                    NavigationLink(destination:  Lab2_1View()){
+//                    NavigationLink(destination:  Lab2_1View()){
+//                        Text("Решение нелинейных уравнеий")
+//                    }
+                    NavigationLink(destination:  Lab2_2View()){
                         Text("Решение нелинейных уравнеий")
                     }
+
+                    
                 }
                 Section(header: Text("Лрболаторная 3")){
                     NavigationLink(destination: Lab3_1View()){
-                        Text("Графики чето там...")
+                        Text("Интерполяционные многочлены Лагранжа и Ньютона")
                     }
                     NavigationLink(destination: Lab3_2View()){
+                        Text("Кубический сплайн")
+                    }
+                    NavigationLink(destination: Lab3_3View()){
                         Text("Приближающие многочлены")
                     }
-                    
+                    NavigationLink(destination: Lab3_4View()){
+                        Text("Численое диференцирование")
+                    }
+                    NavigationLink(destination: Lab3_5View()){
+                        Text("Численое интегрирование")
+                    }
+                }
+                
+                Section(header: Text("Лрболаторная 4")){
+                    NavigationLink(destination: Lab4_1View()){
+                        Text("Задача Коши ОДУ")
+                    }
+                    NavigationLink(destination: Lab4_2View()){
+                        Text("Краевая задача ОДУ")
+                    }
                 }
                 Section{
                     NavigationLink(destination: DataView()){

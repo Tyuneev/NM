@@ -3,32 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D1250E770D001D657B /* Lab3.2View.swift */; };
 		B905E3D4250E7724001D657B /* Lab1.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D3250E7724001D657B /* Lab1.2View.swift */; };
 		B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E3D5250EB139001D657B /* Lab1.3View.swift */; };
-		B905E43E252B8192001D657B /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43C252B8192001D657B /* Realm.framework */; };
-		B905E43F252B8192001D657B /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43C252B8192001D657B /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B905E440252B8192001D657B /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43D252B8192001D657B /* RealmSwift.framework */; };
-		B905E441252B8192001D657B /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B905E43D252B8192001D657B /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B905E448252BA104001D657B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E447252BA104001D657B /* GraphView.swift */; };
 		B905E44B252BA148001D657B /* Graphs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B905E44A252BA148001D657B /* Graphs.swift */; };
+		B91D4255256C3DE800E21EA1 /* ChengeIndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91D4254256C3DE800E21EA1 /* ChengeIndexView.swift */; };
+		B941E23C255316EC00E2C9ED /* AccuracyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B941E23B255316EB00E2C9ED /* AccuracyView.swift */; };
+		B96E7E8B255EF06600DC6545 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B96E7E8A255EF06600DC6545 /* Realm */; };
+		B96E7E8D255EF06600DC6545 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B96E7E8C255EF06600DC6545 /* RealmSwift */; };
 		B97124BF246002B700CF3439 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124BE246002B700CF3439 /* SceneDelegate.swift */; };
 		B97124C1246002B700CF3439 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124C0246002B700CF3439 /* ContentView.swift */; };
 		B97124C3246002BD00CF3439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97124C2246002BD00CF3439 /* Assets.xcassets */; };
 		B97124C6246002BD00CF3439 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B97124C5246002BD00CF3439 /* Preview Assets.xcassets */; };
-		B97124C9246002BD00CF3439 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B97124C7246002BD00CF3439 /* LaunchScreen.storyboard */; };
 		B97124D4246002BD00CF3439 /* NM_1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124D3246002BD00CF3439 /* NM_1Tests.swift */; };
 		B97124DF246002BD00CF3439 /* NM_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124DE246002BD00CF3439 /* NM_1UITests.swift */; };
 		B971250D246457EC00CF3439 /* ComplexNumbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9712509246457EC00CF3439 /* ComplexNumbers.swift */; };
 		B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */; };
 		B971250F246457EC00CF3439 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250B246457EC00CF3439 /* Matrix.swift */; };
 		B9712510246457EC00CF3439 /* SLAE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B971250C246457EC00CF3439 /* SLAE.swift */; };
+		B97EC85A2563452400AAB8C9 /* DifferentialEquations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC8592563452400AAB8C9 /* DifferentialEquations.swift */; };
+		B97EC86025656E2B00AAB8C9 /* SNLAE.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC85F25656E2B00AAB8C9 /* SNLAE.swift */; };
+		B97EC870256570D300AAB8C9 /* Lab4.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC86F256570D300AAB8C9 /* Lab4.1View.swift */; };
+		B97EC87A2566F8D800AAB8C9 /* Lab4.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC8792566F8D800AAB8C9 /* Lab4.2View.swift */; };
+		B97EC87E2566F8F200AAB8C9 /* Lab2.2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC87D2566F8F200AAB8C9 /* Lab2.2View.swift */; };
+		B97EC8872569937E00AAB8C9 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97EC8862569937D00AAB8C9 /* InputView.swift */; };
 		B9A5DE94254F600F00BF822E /* Lab3.3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A5DE93254F600F00BF822E /* Lab3.3View.swift */; };
-		B9AA760424F05BA9005C4E8F /* Test2UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AA760324F05BA9005C4E8F /* Test2UIView.swift */; };
 		B9BB434D2506E75B00116B02 /* GraphsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB434C2506E75B00116B02 /* GraphsView.swift */; };
 		B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB434E25083ED800116B02 /* Lab3.1View.swift */; };
 		B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BB435025096E3E00116B02 /* LabMenuView.swift */; };
@@ -37,11 +41,9 @@
 		B9CABAEF254AF8F700C9D975 /* Lab2.1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */; };
 		B9CABAF6254B22AE00C9D975 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAF5254B22AE00C9D975 /* SettingsView.swift */; };
 		B9CABAFC254C3A3900C9D975 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CABAFB254C3A3900C9D975 /* Settings.swift */; };
-		B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */; };
 		B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */; };
 		B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */; };
-		B9E13DAA24B7BF4400A0ECB0 /* TmpEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */; };
-		B9E13DAC24B7CF6C00A0ECB0 /* TmpCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DAB24B7CF6C00A0ECB0 /* TmpCode.swift */; };
+		B9E13DAC24B7CF6C00A0ECB0 /* ObservableMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DAB24B7CF6C00A0ECB0 /* ObservableMatrix.swift */; };
 		B9E13DB624B7FF9F00A0ECB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97124BC246002B700CF3439 /* AppDelegate.swift */; };
 		B9E13DB724B7FFAA00A0ECB0 /* SummarizeMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */; };
 		B9E13DBB24B87F2100A0ECB0 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DBA24B87F2100A0ECB0 /* DataView.swift */; };
@@ -51,10 +53,11 @@
 		B9E13DC424B8C3C300A0ECB0 /* MatrixDeterminantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC324B8C3C300A0ECB0 /* MatrixDeterminantView.swift */; };
 		B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */; };
 		B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */; };
-		B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */; };
 		B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */; };
 		B9F15B4F253F120200023345 /* Lab1.4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F15B4E253F120200023345 /* Lab1.4View.swift */; };
 		B9F15B55253F13E500023345 /* Lab1.5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F15B54253F13E500023345 /* Lab1.5View.swift */; };
+		B9F92E3E2557144000A283C6 /* Lab3.4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F92E3D2557144000A283C6 /* Lab3.4View.swift */; };
+		B9F92E422559C60500A283C6 /* Lab3.5View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F92E412559C60500A283C6 /* Lab3.5View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,8 +84,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B905E441252B8192001D657B /* RealmSwift.framework in Embed Frameworks */,
-				B905E43F252B8192001D657B /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,17 +94,16 @@
 		B905E3D1250E770D001D657B /* Lab3.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.2View.swift; sourceTree = "<group>"; };
 		B905E3D3250E7724001D657B /* Lab1.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.2View.swift; sourceTree = "<group>"; };
 		B905E3D5250EB139001D657B /* Lab1.3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.3View.swift; sourceTree = "<group>"; };
-		B905E43C252B8192001D657B /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "../Библиотеки/realm-5.4.7/ios/swift-12.0/Realm.framework"; sourceTree = "<group>"; };
-		B905E43D252B8192001D657B /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "../Библиотеки/realm-5.4.7/ios/swift-12.0/RealmSwift.framework"; sourceTree = "<group>"; };
 		B905E447252BA104001D657B /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		B905E44A252BA148001D657B /* Graphs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graphs.swift; sourceTree = "<group>"; };
+		B91D4254256C3DE800E21EA1 /* ChengeIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChengeIndexView.swift; sourceTree = "<group>"; };
+		B941E23B255316EB00E2C9ED /* AccuracyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccuracyView.swift; path = NM_1/UtilityView/AccuracyView.swift; sourceTree = SOURCE_ROOT; };
 		B97124B9246002B700CF3439 /* NM_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NM_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97124BC246002B700CF3439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B97124BE246002B700CF3439 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B97124C0246002B700CF3439 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B97124C2246002BD00CF3439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B97124C5246002BD00CF3439 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B97124C8246002BD00CF3439 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B97124CA246002BD00CF3439 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B97124CF246002BD00CF3439 /* NM_1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NM_1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B97124D3246002BD00CF3439 /* NM_1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NM_1Tests.swift; sourceTree = "<group>"; };
@@ -115,8 +115,13 @@
 		B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EigenValuesAndVectors.swift; sourceTree = "<group>"; };
 		B971250B246457EC00CF3439 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		B971250C246457EC00CF3439 /* SLAE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SLAE.swift; path = NM_1/Matrix/Algorithm/SLAE.swift; sourceTree = SOURCE_ROOT; };
+		B97EC8592563452400AAB8C9 /* DifferentialEquations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentialEquations.swift; sourceTree = "<group>"; };
+		B97EC85F25656E2B00AAB8C9 /* SNLAE.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLAE.swift; sourceTree = "<group>"; };
+		B97EC86F256570D300AAB8C9 /* Lab4.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab4.1View.swift; sourceTree = "<group>"; };
+		B97EC8792566F8D800AAB8C9 /* Lab4.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab4.2View.swift; sourceTree = "<group>"; };
+		B97EC87D2566F8F200AAB8C9 /* Lab2.2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2.2View.swift; sourceTree = "<group>"; };
+		B97EC8862569937D00AAB8C9 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		B9A5DE93254F600F00BF822E /* Lab3.3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.3View.swift; sourceTree = "<group>"; };
-		B9AA760324F05BA9005C4E8F /* Test2UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2UIView.swift; sourceTree = "<group>"; };
 		B9BB434C2506E75B00116B02 /* GraphsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphsView.swift; sourceTree = "<group>"; };
 		B9BB434E25083ED800116B02 /* Lab3.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.1View.swift; sourceTree = "<group>"; };
 		B9BB435025096E3E00116B02 /* LabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabMenuView.swift; sourceTree = "<group>"; };
@@ -125,12 +130,10 @@
 		B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2.1View.swift; sourceTree = "<group>"; };
 		B9CABAF5254B22AE00C9D975 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B9CABAFB254C3A3900C9D975 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixOptionsView.swift; sourceTree = "<group>"; };
 		B9E13DA524B7BBBC00A0ECB0 /* SummarizeMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizeMatrixView.swift; sourceTree = "<group>"; };
 		B9E13DA724B7BBCE00A0ECB0 /* SubtractMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtractMatrixView.swift; sourceTree = "<group>"; };
-		B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpEditView.swift; sourceTree = "<group>"; };
-		B9E13DAB24B7CF6C00A0ECB0 /* TmpCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TmpCode.swift; sourceTree = "<group>"; };
+		B9E13DAB24B7CF6C00A0ECB0 /* ObservableMatrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableMatrix.swift; sourceTree = "<group>"; };
 		B9E13DB824B87EF100A0ECB0 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B9E13DBA24B87F2100A0ECB0 /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixView.swift; sourceTree = "<group>"; };
@@ -138,10 +141,11 @@
 		B9E13DC324B8C3C300A0ECB0 /* MatrixDeterminantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixDeterminantView.swift; sourceTree = "<group>"; };
 		B9E13DC524B8C3F100A0ECB0 /* SLAEView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAEView.swift; sourceTree = "<group>"; };
 		B9E13DC724B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixLUDecompositionView.swift; sourceTree = "<group>"; };
-		B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMatrixView.swift; sourceTree = "<group>"; };
 		B9E13DCC24BCC0CF00A0ECB0 /* InversMatrixView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InversMatrixView.swift; sourceTree = "<group>"; };
 		B9F15B4E253F120200023345 /* Lab1.4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.4View.swift; sourceTree = "<group>"; };
 		B9F15B54253F13E500023345 /* Lab1.5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab1.5View.swift; sourceTree = "<group>"; };
+		B9F92E3D2557144000A283C6 /* Lab3.4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.4View.swift; sourceTree = "<group>"; };
+		B9F92E412559C60500A283C6 /* Lab3.5View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3.5View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +153,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B905E440252B8192001D657B /* RealmSwift.framework in Frameworks */,
-				B905E43E252B8192001D657B /* Realm.framework in Frameworks */,
+				B96E7E8D255EF06600DC6545 /* RealmSwift in Frameworks */,
+				B96E7E8B255EF06600DC6545 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,15 +175,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B905E422252B7DBC001D657B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B905E43C252B8192001D657B /* Realm.framework */,
-				B905E43D252B8192001D657B /* RealmSwift.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B905E443252B9FCD001D657B /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B9E13DBC24B894CD00A0ECB0 /* MatrixView.swift */,
-				B9E13DA924B7BF4400A0ECB0 /* TmpEditView.swift */,
+				B97EC8862569937D00AAB8C9 /* InputView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,9 +196,10 @@
 		B905E445252BA027001D657B /* Algorithm */ = {
 			isa = PBXGroup;
 			children = (
+				B9E13DAB24B7CF6C00A0ECB0 /* ObservableMatrix.swift */,
 				B9712509246457EC00CF3439 /* ComplexNumbers.swift */,
-				B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */,
 				B971250C246457EC00CF3439 /* SLAE.swift */,
+				B971250A246457EC00CF3439 /* EigenValuesAndVectors.swift */,
 				B971250B246457EC00CF3439 /* Matrix.swift */,
 			);
 			path = Algorithm;
@@ -233,7 +229,6 @@
 				B97124D2246002BD00CF3439 /* NM_1Tests */,
 				B97124DD246002BD00CF3439 /* NM_1UITests */,
 				B97124BA246002B700CF3439 /* Products */,
-				B905E422252B7DBC001D657B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,20 +245,17 @@
 		B97124BB246002B700CF3439 /* NM_1 */ = {
 			isa = PBXGroup;
 			children = (
-				B97124BC246002B700CF3439 /* AppDelegate.swift */,
-				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
-				B9E13D9B24B3AB5B00A0ECB0 /* MenuView.swift */,
-				B97124C0246002B700CF3439 /* ContentView.swift */,
-				B9CABAF5254B22AE00C9D975 /* SettingsView.swift */,
-				B9CABAFB254C3A3900C9D975 /* Settings.swift */,
+				B9AB926D256BFB9C00377C17 /* Delegates */,
+				B9AB926A256BFB8300377C17 /* Settings */,
+				B9AB9269256BFB6900377C17 /* UtilityView */,
 				B9E13DAE24B7D4E300A0ECB0 /* tmp */,
-				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
 				B9BB4354250A42A100116B02 /* LabsView */,
+				B97EC85E25656E0100AAB8C9 /* SNLAE */,
 				B905E443252B9FCD001D657B /* Data */,
+				B97EC85D25656D7700AAB8C9 /* DifferentialEquations */,
 				B9BB4355250A42BC00116B02 /* Grapfs */,
 				B9712508246457EC00CF3439 /* Matrix */,
 				B97124C2246002BD00CF3439 /* Assets.xcassets */,
-				B97124C7246002BD00CF3439 /* LaunchScreen.storyboard */,
 				B97124CA246002BD00CF3439 /* Info.plist */,
 				B97124C4246002BD00CF3439 /* Preview Content */,
 			);
@@ -299,25 +291,107 @@
 		B9712508246457EC00CF3439 /* Matrix */ = {
 			isa = PBXGroup;
 			children = (
+				B9E13DAF24B7D50900A0ECB0 /* AlgorithmView */,
 				B905E445252BA027001D657B /* Algorithm */,
 				B905E444252B9FFD001D657B /* View */,
 			);
 			path = Matrix;
 			sourceTree = "<group>";
 		};
-		B9BB4354250A42A100116B02 /* LabsView */ = {
+		B97EC85D25656D7700AAB8C9 /* DifferentialEquations */ = {
 			isa = PBXGroup;
 			children = (
-				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
+				B97EC8592563452400AAB8C9 /* DifferentialEquations.swift */,
+			);
+			path = DifferentialEquations;
+			sourceTree = "<group>";
+		};
+		B97EC85E25656E0100AAB8C9 /* SNLAE */ = {
+			isa = PBXGroup;
+			children = (
+				B97EC85F25656E2B00AAB8C9 /* SNLAE.swift */,
+			);
+			path = SNLAE;
+			sourceTree = "<group>";
+		};
+		B9AB9269256BFB6900377C17 /* UtilityView */ = {
+			isa = PBXGroup;
+			children = (
+				B97124C0246002B700CF3439 /* ContentView.swift */,
+				B91D4254256C3DE800E21EA1 /* ChengeIndexView.swift */,
+				B941E23B255316EB00E2C9ED /* AccuracyView.swift */,
+			);
+			path = UtilityView;
+			sourceTree = "<group>";
+		};
+		B9AB926A256BFB8300377C17 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B9CABAF5254B22AE00C9D975 /* SettingsView.swift */,
+				B9CABAFB254C3A3900C9D975 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B9AB926D256BFB9C00377C17 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B97124BC246002B700CF3439 /* AppDelegate.swift */,
+				B97124BE246002B700CF3439 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B9AB926E256BFC4800377C17 /* Lab1View */ = {
+			isa = PBXGroup;
+			children = (
 				B9BB435225096ED400116B02 /* Lab1.1View.swift */,
 				B905E3D3250E7724001D657B /* Lab1.2View.swift */,
 				B905E3D5250EB139001D657B /* Lab1.3View.swift */,
 				B9F15B4E253F120200023345 /* Lab1.4View.swift */,
 				B9F15B54253F13E500023345 /* Lab1.5View.swift */,
+			);
+			path = Lab1View;
+			sourceTree = "<group>";
+		};
+		B9AB9275256BFC6A00377C17 /* Lab2View */ = {
+			isa = PBXGroup;
+			children = (
 				B9CABAEE254AF8F700C9D975 /* Lab2.1View.swift */,
+				B97EC87D2566F8F200AAB8C9 /* Lab2.2View.swift */,
+			);
+			path = Lab2View;
+			sourceTree = "<group>";
+		};
+		B9AB9276256BFC7800377C17 /* Lab3View */ = {
+			isa = PBXGroup;
+			children = (
 				B9BB434E25083ED800116B02 /* Lab3.1View.swift */,
-				B9A5DE93254F600F00BF822E /* Lab3.3View.swift */,
 				B905E3D1250E770D001D657B /* Lab3.2View.swift */,
+				B9A5DE93254F600F00BF822E /* Lab3.3View.swift */,
+				B9F92E3D2557144000A283C6 /* Lab3.4View.swift */,
+				B9F92E412559C60500A283C6 /* Lab3.5View.swift */,
+			);
+			path = Lab3View;
+			sourceTree = "<group>";
+		};
+		B9AB9279256BFC8500377C17 /* Lab4View */ = {
+			isa = PBXGroup;
+			children = (
+				B97EC86F256570D300AAB8C9 /* Lab4.1View.swift */,
+				B97EC8792566F8D800AAB8C9 /* Lab4.2View.swift */,
+			);
+			path = Lab4View;
+			sourceTree = "<group>";
+		};
+		B9BB4354250A42A100116B02 /* LabsView */ = {
+			isa = PBXGroup;
+			children = (
+				B9BB435025096E3E00116B02 /* LabMenuView.swift */,
+				B9AB926E256BFC4800377C17 /* Lab1View */,
+				B9AB9275256BFC6A00377C17 /* Lab2View */,
+				B9AB9276256BFC7800377C17 /* Lab3View */,
+				B9AB9279256BFC8500377C17 /* Lab4View */,
 			);
 			path = LabsView;
 			sourceTree = "<group>";
@@ -334,9 +408,6 @@
 		B9E13DAE24B7D4E300A0ECB0 /* tmp */ = {
 			isa = PBXGroup;
 			children = (
-				B9E13DCA24BCB28300A0ECB0 /* EditMatrixView.swift */,
-				B9AA760324F05BA9005C4E8F /* Test2UIView.swift */,
-				B9E13DAB24B7CF6C00A0ECB0 /* TmpCode.swift */,
 				B9E13DA124B76B0C00A0ECB0 /* MatrixOptionsView.swift */,
 			);
 			path = tmp;
@@ -374,6 +445,10 @@
 			dependencies = (
 			);
 			name = NM_1;
+			packageProductDependencies = (
+				B96E7E8A255EF06600DC6545 /* Realm */,
+				B96E7E8C255EF06600DC6545 /* RealmSwift */,
+			);
 			productName = NM_1;
 			productReference = B97124B9246002B700CF3439 /* NM_1.app */;
 			productType = "com.apple.product-type.application";
@@ -446,6 +521,9 @@
 				Base,
 			);
 			mainGroup = B97124B0246002B700CF3439;
+			packageReferences = (
+				B96E7E89255EF06600DC6545 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = B97124BA246002B700CF3439 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -462,7 +540,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B97124C9246002BD00CF3439 /* LaunchScreen.storyboard in Resources */,
 				B97124C6246002BD00CF3439 /* Preview Assets.xcassets in Resources */,
 				B97124C3246002BD00CF3439 /* Assets.xcassets in Resources */,
 			);
@@ -489,11 +566,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9F92E3E2557144000A283C6 /* Lab3.4View.swift in Sources */,
 				B9E13DA224B76B0C00A0ECB0 /* MatrixOptionsView.swift in Sources */,
 				B9E13DC824B8C42F00A0ECB0 /* MatrixLUDecompositionView.swift in Sources */,
 				B9A5DE94254F600F00BF822E /* Lab3.3View.swift in Sources */,
 				B9E13DC624B8C3F100A0ECB0 /* SLAEView.swift in Sources */,
-				B9E13D9C24B3AB5B00A0ECB0 /* MenuView.swift in Sources */,
 				B9E13DB624B7FF9F00A0ECB0 /* AppDelegate.swift in Sources */,
 				B905E3D4250E7724001D657B /* Lab1.2View.swift in Sources */,
 				B9BB434F25083ED800116B02 /* Lab3.1View.swift in Sources */,
@@ -501,31 +578,37 @@
 				B9E13DA824B7BBCE00A0ECB0 /* SubtractMatrixView.swift in Sources */,
 				B905E44B252BA148001D657B /* Graphs.swift in Sources */,
 				B9E13DC424B8C3C300A0ECB0 /* MatrixDeterminantView.swift in Sources */,
-				B9E13DCB24BCB28300A0ECB0 /* EditMatrixView.swift in Sources */,
 				B9E13DBB24B87F2100A0ECB0 /* DataView.swift in Sources */,
 				B9CABAEF254AF8F700C9D975 /* Lab2.1View.swift in Sources */,
 				B9BB435125096E3E00116B02 /* LabMenuView.swift in Sources */,
 				B9F15B4F253F120200023345 /* Lab1.4View.swift in Sources */,
 				B905E448252BA104001D657B /* GraphView.swift in Sources */,
 				B905E3D2250E770D001D657B /* Lab3.2View.swift in Sources */,
+				B97EC870256570D300AAB8C9 /* Lab4.1View.swift in Sources */,
+				B97EC8872569937E00AAB8C9 /* InputView.swift in Sources */,
 				B9BB435325096ED400116B02 /* Lab1.1View.swift in Sources */,
+				B941E23C255316EC00E2C9ED /* AccuracyView.swift in Sources */,
+				B97EC87E2566F8F200AAB8C9 /* Lab2.2View.swift in Sources */,
 				B9E13DC224B8C39B00A0ECB0 /* DegreeMatrixView.swift in Sources */,
 				B97124BF246002B700CF3439 /* SceneDelegate.swift in Sources */,
 				B9BB434D2506E75B00116B02 /* GraphsView.swift in Sources */,
 				B9712510246457EC00CF3439 /* SLAE.swift in Sources */,
 				B971250F246457EC00CF3439 /* Matrix.swift in Sources */,
-				B9AA760424F05BA9005C4E8F /* Test2UIView.swift in Sources */,
+				B97EC85A2563452400AAB8C9 /* DifferentialEquations.swift in Sources */,
 				B971250E246457EC00CF3439 /* EigenValuesAndVectors.swift in Sources */,
+				B97EC87A2566F8D800AAB8C9 /* Lab4.2View.swift in Sources */,
 				B905E3D6250EB139001D657B /* Lab1.3View.swift in Sources */,
+				B91D4255256C3DE800E21EA1 /* ChengeIndexView.swift in Sources */,
 				B9CABAFC254C3A3900C9D975 /* Settings.swift in Sources */,
 				B9E13DCD24BCC0D000A0ECB0 /* InversMatrixView.swift in Sources */,
 				B9BB4357250A448000116B02 /* MultiplyMatrixView.swift in Sources */,
-				B9E13DAA24B7BF4400A0ECB0 /* TmpEditView.swift in Sources */,
 				B9CABAF6254B22AE00C9D975 /* SettingsView.swift in Sources */,
 				B97124C1246002B700CF3439 /* ContentView.swift in Sources */,
+				B97EC86025656E2B00AAB8C9 /* SNLAE.swift in Sources */,
 				B971250D246457EC00CF3439 /* ComplexNumbers.swift in Sources */,
-				B9E13DAC24B7CF6C00A0ECB0 /* TmpCode.swift in Sources */,
+				B9E13DAC24B7CF6C00A0ECB0 /* ObservableMatrix.swift in Sources */,
 				B9F15B55253F13E500023345 /* Lab1.5View.swift in Sources */,
+				B9F92E422559C60500A283C6 /* Lab3.5View.swift in Sources */,
 				B9E13DBD24B894CD00A0ECB0 /* MatrixView.swift in Sources */,
 				B9E13DBE24B8C1ED00A0ECB0 /* Data.swift in Sources */,
 			);
@@ -561,17 +644,6 @@
 			targetProxy = B97124DB246002BD00CF3439 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B97124C7246002BD00CF3439 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B97124C8246002BD00CF3439 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B97124E1246002BD00CF3439 /* Debug */ = {
@@ -626,6 +698,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_MAP_FILE_PATH = "";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -694,17 +767,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NM_1/Preview Content\"";
+				DEVELOPMENT_TEAM = BLNT6PK7D8;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = NM_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "T-A.NM-1";
+				PRODUCT_BUNDLE_IDENTIFIER = NumberMethods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -714,17 +790,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NM_1/Preview Content\"";
+				DEVELOPMENT_TEAM = BLNT6PK7D8;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = NM_1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "T-A.NM-1";
+				PRODUCT_BUNDLE_IDENTIFIER = NumberMethods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -735,7 +814,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLNT6PK7D8;
 				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "/Users/tyuneev.alexey/Documents/Проекты/Библиотеки/realm-5.4.7/ios/swift-12.0/     ";
 				INFOPLIST_FILE = NM_1Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
@@ -852,6 +933,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B96E7E89255EF06600DC6545 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B96E7E8A255EF06600DC6545 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96E7E89255EF06600DC6545 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		B96E7E8C255EF06600DC6545 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B96E7E89255EF06600DC6545 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B97124B1246002B700CF3439 /* Project object */;
 }

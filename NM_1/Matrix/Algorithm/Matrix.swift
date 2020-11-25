@@ -196,7 +196,7 @@ struct Matrix: Codable {
     }
     mutating func AddRow(){
         self.rows += 1
-        if self.elements.count < rows{
+        if self.elements.count < rows {
             self.elements.append([Double](repeating: 0.0, count: self.columns))
         } else {
             self.elements[rows-1] = [Double](repeating: 0.0, count: self.columns)
@@ -218,6 +218,9 @@ struct Matrix: Codable {
     mutating func RemoveColumn(){
         if self.columns > 1 {
             self.columns -= 1
+//            for i in 0..<elements.count {
+//                self.elements[i].removeLast()
+//            }
             for i in 0..<self.rows {
                 self.elements[i].removeLast()
             }
@@ -225,6 +228,33 @@ struct Matrix: Codable {
     }
     mutating func SwapRows(_ n1: Int, _ n2: Int){
         elements.swapAt(n1, n2)
+    }
+    
+    mutating func SwapRows(swaps: [(Int,Int)]){
+        for (s1, s2) in swaps{
+            self.elements.swapAt(s1, s2)
+        }
+    }
+    
+    func swapsToRemoveZeroFrimDiagonal() -> (Matrix, [(Int, Int)]){
+        var swaps: [(Int, Int)] = []
+        var matrix = self
+        for i in 0..<matrix.columns{
+            while (matrix[i,i] == 0) {
+                for j in 0..<matrix.columns{
+                    if (matrix[i,j] != 0), (matrix[j,i] != 0) {
+                        matrix.SwapRows(i, j)
+                        swaps += [(i,j)]
+                        break
+                    }
+                }
+            }
+        }
+        return (matrix, swaps)
+    }
+    
+    func VectorAsArray() -> [Double]{
+        return self.Transpose().elements.first ?? []
     }
     
     mutating func SwapColums(_ n1: Int, _ n2: Int){
@@ -281,8 +311,8 @@ struct Matrix: Codable {
     
     static func *(Left : Double, Right : Matrix) -> Matrix {
         var ResultElements = [[Double]](repeating: ([Double](repeating: 0.0, count: Right.columns)), count: Right.rows)
-        for i in 0..<Right.columns{
-            for j in 0..<Right.rows{
+        for i in 0..<Right.rows{
+            for j in 0..<Right.columns{
                 ResultElements[i][j] += Right[i,j]*Left
             }
         }

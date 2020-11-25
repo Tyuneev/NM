@@ -15,7 +15,6 @@ struct СhangeableMatrixOptionsView: View {
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.white)
                 .padding()
-                
             Image(systemName: "tray.and.arrow.down.fill")
                 .font(.system(size: 20, weight: .regular))
                 .foregroundColor(Color.white)

@@ -9,14 +9,8 @@
 import SwiftUI
 
 struct DataView: View {
-    init(){
-        realmeManager = RealmManager()
-        self._matrix = State<Array<SavedMatrix>>(initialValue: realmeManager.getMatrix())
-    }
-    var realmeManager: RealmManager
- 
-        
-    @State var matrix: [SavedMatrix]
+    let realmeManager = RealmManager()
+    @State var matrix: [SavedMatrix] = []
     var body: some View {
         List {
             ForEach(self.matrix) { m in
@@ -29,6 +23,9 @@ struct DataView: View {
                 self.matrix.remove(atOffsets: $0)
             }
         }.listStyle(GroupedListStyle())
+        .onAppear(){
+            matrix = realmeManager.getMatrix()
+        }
     }
 }
 
@@ -38,7 +35,7 @@ struct DataForChoosView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
        List {
-            ForEach(self.realmeManager.getMatrix()) { item in
+        ForEach(self.realmeManager.getMatrix().reversed()) { item in
                 Section(header: Text(item.name)) {
                     ChoosMatrixView(matrix: item.matrix)
                 }.onTapGesture {

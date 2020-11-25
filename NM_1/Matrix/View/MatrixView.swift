@@ -21,21 +21,22 @@ struct ChangeableMatrixView: View {
     @State private var ShowEditor = false
 
     var body: some View {
-        HStack(alignment: .bottom, spacing: 4){
+        HStack(alignment: .bottom, spacing: 10){
             ForEach(0..<self.matrix.WarpedMatrix.columns, id: \.self){ j in
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .center, spacing: 10) {
                     ForEach(0..<self.matrix.WarpedMatrix.rows, id: \.self){ i in
                         let nf = self.settings.numberFormater
                         Text(nf.string(from: NSNumber(value: self.matrix.WarpedMatrix[i, j])) ?? "")
-                            .bold()
-                            .font(.system(size: 15))
-                            .frame(height: 35.0)
-                            .frame(minWidth: 40)
+                            //.bold()
+                            .font(.system(size: CGFloat(settings.fontSize)))
+                        //.frame(height: 35.0)
+                            //.frame(minWidth: 40)
                             .layoutPriority(1)
                     }
                 }
             }
         }
+        .padding(8)
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.blue.opacity(0.3)
@@ -83,7 +84,9 @@ struct ChangeableMatrixView: View {
     func SheetView() -> AnyView {
         switch self.activSheet {
         case .EditView:
-            return AnyView(TmpEditView().environmentObject(matrix))
+            return AnyView(InputView(matrix, numberFormatter: settings.numberFormater, fontSize: settings.fontSize))
+
+//            return AnyView(TmpEditView().environmentObject(matrix))
         case .SaveMatrixView:
             return AnyView(SaveMatrixView(matrix: self.matrix.WarpedMatrix))
         case .ChoosSavedMatrixView:
@@ -106,6 +109,7 @@ struct ChangeableMatrixView: View {
             
         }
         alert.addAction(saving)
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
         return alert
     }
 }
@@ -117,23 +121,24 @@ struct UnchangeableMatrixView: View {
     @State private var showSaveMatrixView = false
     
     var body: some View {
-        HStack(alignment: .bottom, spacing: 0){
+        HStack(alignment: .bottom, spacing: 10){
             ForEach(0..<self.matrix.columns, id: \.self){ j in
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .center, spacing: 10) {
                     ForEach(0..<self.matrix.rows, id: \.self){ i in
                         Text(toString(self.matrix[i, j]))
-                            .font(.system(size: 15))
-                            .bold()
-                            .frame(height: 35.0)
-                            .frame(minWidth: 40)
-                            .padding(4)
+                            .font(.system(size: CGFloat(settings.fontSize)))
+                            //.bold()
+                            //.frame(height: 35.0)
+                            //.frame(minWidth: 40)
+                            //.padding(4)
                     }
                 }
                 //.frame(maxWidth: .infinity)
                 //.layoutPriority(2)
             }
         }
-        .background(RoundedRectangle(cornerRadius: 10).fill(Color.green.opacity(0.5)))
+        .padding(8)
+        .background(RoundedRectangle(cornerRadius: 10).fill(Color.green.opacity(0.4)))
         .onTapGesture {self.showActionSheet = true}
         .sheet(isPresented: $showSaveMatrixView, content: { SaveMatrixView(matrix: self.matrix)})
         .actionSheet(isPresented: $showActionSheet, content: {
@@ -164,9 +169,9 @@ struct UnchangeableMatrixView: View {
                 let realmeManager = RealmManager()
                 realmeManager.addMatrix(matrix: self.matrix, withName: name)
             }
-            
         }
         alert.addAction(saving)
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
         return alert
     }
 }
@@ -199,7 +204,8 @@ struct ChoosMatrixView: View {
                     }
                 }
             }
-        }.background(RoundedRectangle(cornerRadius: 10).fill(Color.blue.opacity(0.3)))
+        }.background(RoundedRectangle(cornerRadius: 10)
+        .fill(Color.blue.opacity(0.3)))
     }
 }
 

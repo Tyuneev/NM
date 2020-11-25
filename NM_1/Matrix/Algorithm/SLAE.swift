@@ -116,6 +116,8 @@ func SolveSLAE_SimpleIterationMethod<T: DoubleConvertible>(A: Matrix?, B: [T]?, 
     guard A.rows == n && B.count == n else {
         return (nil, 0)
     }
+    
+    
     var b = [Double](repeating: 0.0, count: n)
     var a = Matrix(rows: n, columns: n, defaultValue: 0.0)
     for i in 0..<n{
@@ -138,6 +140,89 @@ func SolveSLAE_SimpleIterationMethod<T: DoubleConvertible>(A: Matrix?, B: [T]?, 
         }
         counter += 1
     } while (k*x.NormOfVector1() > Accuracy)
+    
+    
+    return (xNew, counter)
+}
+
+func SolveSLAE_SimpleIterationMethod(A: Matrix, B: Matrix, Accuracy: Double) -> (Matrix?, Int){
+    guard A.IsSquare() else {
+        return (nil, 0)
+    }
+    let n = A.columns
+    guard B.rows == n else {
+        return (nil, 0)
+    }
+    let swapedA = A.Transpose()*A
+    let swapedB = A.Transpose()*B
+    
+    //let (swapedA, swaps) = A.swapsToRemoveZeroFrimDiagonal()
+    //var swapedB = A.Transpose()*B
+    //swapedB.SwapRows(swaps: swaps)
+
+    var b = Matrix(rows: n, columns: 1, defaultValue: 0.0)
+    var a = Matrix(rows: n, columns: n, defaultValue: 0.0)
+    for i in 0..<n{
+        b[i,0] = swapedB[i,0]/swapedA[i,i]
+        for j in 0..<n {
+            a[i,j] = (i==j ? 0.0 : -swapedA[i,j]/swapedA[i,i])
+        }
+    }
+    let NormOfA = a.NormOfMartix1()
+    let k = (NormOfA < 1 ? NormOfA/(1-NormOfA) : 1) 
+    var x = b
+    var xNew = b
+    var counter = 0
+    repeat{
+        x = xNew
+        xNew = a*x + b
+        x = x - xNew
+        counter += 1
+    } while (k*x.NormOfMartix1() > Accuracy)
+    //xNew.SwapRows(swaps: swaps)
+    return (xNew, counter)
+}
+
+func SolveSLAE_ZendelMethod(A: Matrix, B: Matrix, Accuracy: Double) -> (Matrix?, Int){
+    guard A.IsSquare() else {
+        return (nil, 0)
+    }
+    let n = A.columns
+    guard B.rows == n else {
+        return (nil, 0)
+    }
+    let swapedA = A.Transpose()*A
+    let swapedB = A.Transpose()*B
+//    let (swapedA, swaps) = A.swapsToRemoveZeroFrimDiagonal()
+//    var swapedB = B
+//    swapedB.SwapRows(swaps: swaps)
+    var b = Matrix(rows: n, columns: 1, defaultValue: 0.0)
+    var a = Matrix(rows: n, columns: n, defaultValue: 0.0)
+    for i in 0..<n{
+        b[i,0] = swapedB[i,0]/swapedA[i,i]
+        for j in 0..<n {
+            a[i,j] = (i==j ? 0.0 : -swapedA[i,j]/swapedA[i,i])
+        }
+    }
+    var a1 = a
+    for i in 0..<n{
+        for j in i..<n{
+            a1[i,j] = 0
+        }
+    }
+    let a2 = a - a1
+    let k = (a.NormOfMartix1() < 1 ? a2.NormOfMartix1()/(1 - a.NormOfMartix1()) : 1)
+    var x = b
+    var xNew = b
+    var counter = 0
+    let E = Matrix(IdentityWithSize: n)
+    repeat{
+        x = xNew
+        xNew = (((E-a1).InverseMatrix() ?? E)*a2*x) + (((E-a1).InverseMatrix() ?? E)*b)
+        x = x - xNew
+        counter += 1
+    } while (k*x.NormOfMartix1() > Accuracy)
+    //xNew.SwapRows(swaps: swaps)
     return (xNew, counter)
 }
 

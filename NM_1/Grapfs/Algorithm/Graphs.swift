@@ -14,20 +14,10 @@ struct Graphs {
     let markOnX: Double
     let markOnY: Double
     
-    var minX: Double
-    var maxX: Double
-    var maxY: Double
-    var minY: Double
-    
-    var kx = 0.0
-    var ky = 0.0
-    var height = 0.0
-    var width = 0.0
-    
-    func c
-    let kX = Double(g.size.width)/(self.graphs.maxX - self.graphs.minX)
-    let kY  = -Double(g.size.height)/(self.graphs.maxY - self.graphs.minY)
-    
+    let minX: Double
+    let maxX: Double
+    let maxY: Double
+    let minY: Double
     
     
     init(graphs: [Graph], points: [Point] = [],  markOnX: Double = 1, markOnY: Double = 1){
@@ -35,27 +25,61 @@ struct Graphs {
         self.points = points
         self.markOnX = markOnX
         self.markOnY = markOnY
-        self.minX = graphs.reduce(0){
+        
+        var tmpMinX = min(markOnX, graphs.reduce(0){
             min($0, $1.points.reduce(0){
                 min($0, $1.0)
             })
-        }
-        self.maxX = graphs.reduce(0){
+        })
+        var tmpMaxX = max(markOnX, graphs.reduce(0){
             max($0, $1.points.reduce(0){
                 max($0, $1.0)
-                
             })
-        }
-        self.maxY = graphs.reduce(0){
+        })
+        var tmpMaxY = max(markOnY, graphs.reduce(0){
             max($0, $1.points.reduce(0){
                 max($0, $1.1)
             })
-        }
-        self.minY = graphs.reduce(0){
+        })
+        var tmpMinY = min(markOnY, graphs.reduce(0){
             min($0, $1.points.reduce(0){
                 min($0, $1.1)
             })
+        })
+        
+        if -tmpMinX < tmpMaxX/9{
+            tmpMinX = -tmpMaxX/9
         }
+        if -tmpMinY < tmpMaxY/9{
+            tmpMinY = -tmpMaxY/9
+        }
+        if tmpMaxX < -tmpMinX/9{
+            tmpMaxX = -tmpMinX/9
+        }
+        if tmpMaxY < -tmpMinY/9{
+            tmpMaxY = -tmpMinY/9
+        }
+        
+//        if tmpMinX == markOnX{
+//            tmpMinX = markOnX - (tmpMaxY - tmpMinX)/9
+//        }
+//        if tmpMinY == markOnY{
+//            tmpMinX = markOnY - (tmpMaxY - tmpMinY)/9
+//        }
+        if tmpMaxX < markOnX + (tmpMaxX - tmpMinX)/9{
+            tmpMaxX = markOnX + (tmpMaxX - tmpMinX)/9
+        }
+        if tmpMaxY < markOnY + (tmpMaxY - tmpMinY)/9{
+            tmpMaxY = markOnY + (tmpMaxY - tmpMinY)/9
+        }
+
+
+        
+        self.minX = tmpMinX
+        self.maxX = tmpMaxX
+        self.maxY = tmpMaxY
+        self.minY = tmpMinY
+        
     }
 }
 
@@ -69,7 +93,7 @@ struct Graph: Identifiable {
     let id = UUID()
     var points: [(Double, Double)] = []
     var color: Color = Color.black
-    var InterpolationMethod: interpolate?
+    var InterpolationMethod: interpolate? = nil
     var function: ((Double) -> Double?)? = nil
     func GetPoint(_ x: Double) -> Double?{
         if let IM = self.InterpolationMethod,
@@ -93,7 +117,7 @@ struct Graph: Identifiable {
         case msm
     }
     
-    init(interpolatePoints: [(Double, Double)], method: interpolationMethod, step: Double, pow: Int? = nil) {
+    init(interpolatePoints: [(Double, Double)], method: interpolationMethod, step: Double, pow: Int? = nil, color: Color = .black) {
         switch method {
         case .lagrange:
             self.InterpolationMethod = Lagrange(Points: interpolatePoints)
@@ -105,18 +129,21 @@ struct Graph: Identifiable {
             self.InterpolationMethod = MSM(Points: interpolatePoints, pow: pow ?? 1)
         
         }
-        
-        var x = interpolatePoints.first!.0
-        while x < interpolatePoints.last!.0{
+        let lastPoint = interpolatePoints.last ?? (0.0, 0.0)
+        var x = (interpolatePoints.first ?? (0.0, 0.0)).0
+        while x < lastPoint.0{
             points.append((x, self.InterpolationMethod!.GetPoint(x)))
             x += step
         }
-        points.append(interpolatePoints.last!)
-        print(points)
-        
+        points.append((lastPoint.0,
+                       self.InterpolationMethod!.GetPoint(lastPoint.0)))
+        self.color = color
     }
-    
-    init(function f:  @escaping ((Double) -> Double), from: Double, to: Double, step: Double) {
+    init(_ points: [(Double, Double)], color: Color = .black){
+        self.points = points
+        self.color = color
+    }
+    init(function f:  @escaping ((Double) -> Double), from: Double, to: Double, step: Double, color: Color = .black) {
         //let f1 = f
         self.function = { x in
             (x<from || x > to) ? nil : f(x)
@@ -129,12 +156,14 @@ struct Graph: Identifiable {
         if x - step < to {
             points.append((to, f(to)))
         }
+        self.color = color
     }
 }
 
 protocol interpolate {
     var Points: [(Double, Double)] { get }
     func GetPoint(_ x: Double) -> Double
+    func GetPolynomial(_ numbrAfterPoint: Int)->String
 }
 
 struct Lagrange: interpolate{
@@ -145,6 +174,44 @@ struct Lagrange: interpolate{
                 m*((i.0 != j.0) ? (x-j.0)/(i.0-j.0) : 1.0)
             }
         }
+    }
+    func GetPolynomial(_ numbrAfterPoint: Int = 5) -> String {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = numbrAfterPoint
+        func toString(_ n: Double)->String{
+            nf.string(from: NSNumber(value: n)) ?? ""
+        }
+        
+        var result = ""
+        guard Points.count != 0 else{
+            return ""
+        }
+        for i in 0..<Points.count{
+            var k = 1.0
+            var tmp = ""
+//            if result != "", Points[i].1 > 0{
+//                result+="+"
+//            }
+            
+            for j in 0..<Points.count{
+                if i != j{
+                    if Points[j].0 == 0 {
+                        tmp = "x"+tmp
+                    } else if Points[j].0 > 0{
+                        tmp += "(x-"+toString(Points[j].0)+")"
+                    } else{
+                        tmp += "(x+"+toString(-Points[j].0)+")"
+                    }
+                    k /= Points[i].0 - Points[j].0
+                }
+            }
+            if k > 0, result != ""{
+                result += "+"+toString(k) + tmp
+            } else {
+                result += ""+toString(k) + tmp
+            }
+        }
+        return "L(x)="+result
     }
 }
 
@@ -173,6 +240,34 @@ struct Newton: interpolate{
             result += item
         }
         return result
+    }
+    func GetPolynomial(_ numbrAfterPoint: Int = 5) -> String {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = numbrAfterPoint
+        func toString(_ n: Double)->String{
+            nf.string(from: NSNumber(value: n)) ?? ""
+        }
+        var result = ""
+        for i in 0..<Points.count {
+            var tmp = ""
+            if i != 0 {
+                for j in 0..<i {
+                    if Points[j].0 > 0 {
+                        tmp += "(x-"+toString(Points[j].0)+")"
+                    } else if Points[j].0 < 0{
+                        tmp += "(x"+toString(Points[j].0)+")"
+                    } else {
+                        tmp  = "x" + tmp
+                    }
+                }
+            }
+            if Table[i][0] > 0, result != ""{
+                result += "+"+toString(Table[i][0])+tmp
+            } else if Table[i][0] < 0 || result == "" {
+                result += toString(Table[i][0])+tmp
+            }
+        }
+        return "N(x)=" + result
     }
 }
 
@@ -214,6 +309,7 @@ struct CubicSpline: interpolate {
                 d.append(-c[i]/(3*h[i]))
             }
         }
+        
     }
 
     func GetPoint(_ x: Double) -> Double{
@@ -225,6 +321,71 @@ struct CubicSpline: interpolate {
                 + b[i] * (x-Points[i-1].0)
                 + c[i] * pow((x-Points[i-1].0), 2)
                 + d[i] * pow((x-Points[i-1].0), 3)
+    }
+    func GetPolynomial(_ numbrAfterPoint: Int = 5) -> String {
+        guard Points.count > 1 else {
+            return ""
+        }
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = numbrAfterPoint
+        func toString(_ n: Double)->String{
+            nf.string(from: NSNumber(value: n)) ?? ""
+        }
+        var result = [String](repeating: "", count: Points.count)
+        for i in 1..<Points.count {
+            if a[i] != 0{
+                result[i] += toString(a[i])
+            }
+            if b[i] != 0{
+                if b[i] > 0, result[i] != "" {
+                    result[i] += "+"+toString(b[i])
+                } else  {
+                    result[i] += ""+toString(b[i])
+                }
+                if Points[i-1].0 > 0 {
+                    result[i] += "(x"+toString(-Points[i-1].0)+")"
+                } else if Points[i-1].0 < 0{
+                    result[i] += "(x+"+toString(Points[i-1].0)+")"
+                } else {
+                    result[i] += "x"
+                }
+            }
+            if c[i] != 0 {
+                if c[i] > 0, result[i] != "" {
+                    result[i] += "+"+toString(c[i])
+                } else  {
+                    result[i] += ""+toString(c[i])
+                }
+                if Points[i-1].0 > 0 {
+                    result[i] += "(x"+toString(-Points[i-1].0)+")^2"
+                } else if Points[i-1].0 < 0{
+                    result[i] += "(x+"+toString(Points[i-1].0)+")^2"
+                } else {
+                    result[i] += "x^2"
+                }
+            }
+            if d[i] != 0 {
+                if d[i] > 0, result[i] != "" {
+                    result[i] += "+"+toString(d[i])
+                } else  {
+                    result[i] += ""+toString(d[i])
+                }
+                if Points[i-1].0 > 0 {
+                    result[i] += "(x"+toString(-Points[i-1].0)+")^3"
+                } else if Points[i-1].0 < 0{
+                    result[i] += "(x+"+toString(Points[i-1].0)+")^3"
+                } else {
+                    result[i] += "x^3" + "  "
+                }
+            }
+        }
+        var Result = ""
+        for i in result.dropFirst().enumerated(){
+            Result += "f"+toString(Double(i.offset))+"(x)="
+            Result += i.element
+            Result += " "
+        }
+        return Result
     }
 }
 
@@ -244,7 +405,124 @@ struct CubicSpline: interpolate {
 //    print(La.GetPoint(-0.5))
 //    print(Lb.GetPoint(-0.5))
 //}
+struct integralResult{
+    let methodH1: Double
+    let methodH2: Double
+    let errorMethodH1: Double
+    let errorMethodH2: Double
+    let RRR: Double
+    let errorRRR: Double
+}
+struct integrals{
+    let f: ((Double)->Double)
+    let x1: Double
+    let x2: Double
+    func Points(h: Double)->[(Double, Double)]{
+        var points = [(Double, Double)]()
+        var X = x1
+        repeat {
+            points.append((X, f(X)))
+            X += h
+        } while X <= x2
+        return points
+    }
+    func rectangleMethod(h: Double) -> Double{
+        let x = Points(h: h).map{$0.0}
+        return zip(x.dropLast(), x.dropFirst()).map({h*f(($0+$1)/2)}).reduce(0.0){$0+$1}
+    }
+    
+    func trapezeMethod(h: Double) -> Double{
+        let y = Points(h: h).map{$0.1}
+        return  zip(y.dropLast(), y.dropFirst()).map({($0+$1)*h}).reduce(0.0,{($0+$1)})/2
+    }
+    
+    func simpsonMethod(h: Double) -> Double{
+        let y = Points(h: h).map{$0.1}
+        return h/3*(y.dropFirst().dropLast().enumerated().reduce(0.0, {$0+($1.element * (($1.offset % 2 != 0) ? 2 : 4))}) + y.first! + y.last!)
+    }
+    
+    func  rungeRombergMethod(k: Int, p: Int, F1: Double, F2: Double) -> Double{
+        return (F1 + (F1-F2)/(pow(Double(k), Double(p)) - 1))
+    }
+}
 
+struct derivatives{
+    let Points: [(Double, Double)]
+    let derivatives1: [Double]
+    let derivatives2: [Double]
+    
+    init(points: [(Double, Double)]){
+        Points = points
+        derivatives1 = zip(points.dropLast(), points.dropFirst()).map{
+            ($1.1 - $0.1)/($1.0-$0.0)
+        }
+        
+        var tmp: [Double] = []
+        for i in 1..<Points.count - 1{
+            tmp.append(2*(derivatives1[i] - derivatives1[i-1])/(points[i+1].0 - points[i-1].0))
+        }
+        derivatives2 = tmp
+    }
+    func interval(x: Double)->Int{
+        guard
+            x>=Points.first!.0, x<=Points.last!.0 else {
+            return -1
+        }
+        for i in 0..<Points.count - 1{
+            if Points[i].0 <= x, x <= Points[i + 1].0{
+                return i
+            }
+        }
+        return Points.count-2
+    }
+    
+    func dir2(_ x: Double)->Double?{
+        let i = interval(x: x)
+        guard i != -1 else {
+            return nil
+        }
+        guard i < derivatives2.count else {
+            return derivatives2.last
+        }
+        return derivatives2[i]
+    }
+    
+    func dir1(_ x: Double)->Double?{
+        var i = interval(x: x)
+        guard i != -1 else {
+            return nil
+        }
+        if i > derivatives2.count - 2{
+           i = derivatives2.count-2
+        }
+        
+        return (derivatives2[i] + (derivatives2[i+1] - derivatives2[i])/(Points[i+2].0-Points[i].0)*(2*x - Points[i+1].0-Points[i].0))
+    }
+    
+    
+    func derivative(_ x: Double, pow: Int = 1, accuracy: Int = 1) -> (Double, Double?){
+        var i = 0
+        for j in 0..<Points.count - 1 {
+            if Points[j+1].0  >= x {
+                if pow == 1, accuracy == 1{
+                    if Points[j+1].0 == x, j+2<Points.count {
+                        return (derivatives1[j],  derivatives1[j+1])
+                    }
+                    return (derivatives1[j], nil)
+                }
+                i = j
+            }
+        }
+        if pow == 2{
+            if i == Points.count - 2{
+                i -= 1
+            }
+            return (derivatives2[i], nil)
+        }
+        i += 1
+        return  (pow == 1 ? ((derivatives2[i-1] + (derivatives2[i] - derivatives2[i-1])/(Points[i+1].0-Points[i-1].0)*(2*x - Points[i].0-Points[i-1].0)), nil) : (derivatives2[i-1], nil))
+    }
+}
 
 
 struct MSM: interpolate {
@@ -264,6 +542,29 @@ struct MSM: interpolate {
             B[i,0] = Points.reduce(0){$0+$1.1*pow($1.0, Double(i))}
         }
         self.a = SolveSLAE(A: A, B: B)!.Transpose().elements[0]
+    }
+    func GetPolynomial(_ numbrAfterPoint: Int = 5) -> String {
+        let nf = NumberFormatter()
+        nf.maximumFractionDigits = numbrAfterPoint
+        func toString(_ n: Double)->String{
+            nf.string(from: NSNumber(value: n)) ?? ""
+        }
+        var result = ""
+        for i in 0..<a.count{
+            if a[i] != 0{
+                if a[i] > 0, result != ""{
+                    result += "+"+toString(a[i])
+                } else {
+                    result += ""+toString(a[i])
+                }
+                if i == 1{
+                    result += "x"
+                } else if i > 1 {
+                    result += "x^"+toString(Double(i))
+                }
+            }
+        }
+        return "F(x)=" + result
     }
 }
 
